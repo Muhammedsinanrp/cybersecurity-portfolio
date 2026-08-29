@@ -1,0 +1,1143 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Muhammed Sinan | Cybersecurity Professional, SOC Analyst & Ethical Hacker</title>
+  <meta name="description" content="Portfolio of Muhammed Sinan - Cybersecurity Professional, SOC Analyst, and Ethical Hacker. Certified in CEH & CPT with hands-on expertise in Splunk, Sentinel, Wireshark, TryHackMe, and HTB.">
+  <meta name="keywords" content="Muhammed Sinan, Cybersecurity, SOC Analyst, Ethical Hacker, CEH, CPT, SIEM, Splunk, Sentinel, Wireshark, Penetration Testing, Threat Hunting">
+  <meta name="author" content="Muhammed Sinan">
+
+  <!-- Open Graph / Social Media -->
+  <meta property="og:title" content="Muhammed Sinan | 3D Cybersecurity Portfolio">
+  <meta property="og:description" content="Cybersecurity Professional | Ethical Hacker | SOC Analyst. Explore 3D interactive telemetry, labs, certifications, and technical arsenal.">
+  <meta property="og:type" content="website">
+
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500;700&family=Orbitron:wght@600;700;800;900&family=Space+Grotesk:wght@500;700&display=swap" rel="stylesheet">
+
+  <!-- FontAwesome Icons -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+
+  <!-- Custom Stylesheet -->
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+  <!-- 3D WebGL Canvas Layer -->
+  <canvas id="webgl-canvas"></canvas>
+
+  <!-- Matrix Rain Canvas Layer (Toggleable) -->
+  <canvas id="matrix-canvas"></canvas>
+
+  <!-- Cyber Grid Background & Scanline Overlay -->
+  <div class="cyber-grid-overlay"></div>
+  <div class="scanlines"></div>
+
+  <!-- Interactive Custom Cyber Reticle Cursor -->
+  <div class="custom-cursor"></div>
+  <div class="custom-cursor-dot"></div>
+
+  <!-- Content Layer Wrapper -->
+  <div class="content-wrapper">
+
+    <!-- ==========================================================================
+         Header / HUD Navigation Bar
+         ========================================================================== -->
+    <header class="site-header">
+      <div class="container nav-container">
+        <a href="#hero" class="brand-logo" id="nav-brand">
+          <div class="brand-icon">
+            <i class="fas fa-shield-halved"></i>
+          </div>
+          <div class="brand-text">SINAN<span>.CYBER</span></div>
+        </a>
+
+        <ul class="nav-links">
+          <li><a href="#hero" class="nav-link active">Home</a></li>
+          <li><a href="#about" class="nav-link">About & Goal</a></li>
+          <li><a href="#terminal-section" class="nav-link">Terminal</a></li>
+          <li><a href="#skills" class="nav-link">Arsenal</a></li>
+          <li><a href="#soc-ops" class="nav-link">SOC Ops</a></li>
+          <li><a href="#experience" class="nav-link">Experience</a></li>
+          <li><a href="#projects" class="nav-link">Projects</a></li>
+          <li><a href="#certifications" class="nav-link">Certs</a></li>
+          <li><a href="#contact" class="nav-link">Contact</a></li>
+        </ul>
+
+        <div class="nav-controls">
+          <!-- Live Status Indicator -->
+          <div class="status-badge" title="Ready for SOC & PenTest roles">
+            <span class="status-dot"></span>
+            <span>AVAILABLE</span>
+          </div>
+
+          <!-- Sound FX Toggle Button -->
+          <button class="hud-btn" id="sound-toggle-btn" title="Toggle Sci-Fi Audio FX">
+            <i class="fas fa-volume-high"></i>
+            <span>SFX</span>
+          </button>
+
+          <!-- Matrix Rain HUD Toggle -->
+          <button class="hud-btn" id="matrix-toggle-btn" title="Toggle Matrix Digital Rain">
+            <i class="fas fa-terminal"></i>
+            <span>HUD</span>
+          </button>
+
+          <!-- Theme Toggle -->
+          <button class="hud-btn" id="theme-toggle-btn" title="Cycle Cyber Theme">
+            <i class="fas fa-palette"></i>
+          </button>
+
+          <button class="mobile-menu-toggle" aria-label="Toggle navigation menu">
+            <i class="fas fa-bars"></i>
+          </button>
+        </div>
+      </div>
+    </header>
+
+    <!-- ==========================================================================
+         Hero Section (Command Deck & 3D Holographic Core)
+         ========================================================================== -->
+    <section class="hero-section" id="hero">
+      <div class="container">
+        <div class="hero-grid">
+          
+          <!-- Left Column: Bio & Hero Actions -->
+          <div class="hero-text-col">
+            <div class="hero-badge-container">
+              <span class="status-dot"></span>
+              <span class="hero-badge-tag">DEFENSIVE & OFFENSIVE CYBERSECURITY</span>
+            </div>
+
+            <h1 class="hero-title">
+              <span class="glitch-text">MUHAMMED</span><br>
+              <span style="color: var(--cyber-cyan);">SINAN</span>
+            </h1>
+
+            <div class="hero-subtitle-wrapper">
+              <i class="fas fa-terminal" style="font-size: 0.9rem;"></i>
+              <span id="typing-text">SOC Analyst (Tier 1 & 2)</span>
+              <span class="typing-cursor"></span>
+            </div>
+
+            <div class="hero-location">
+              <i class="fas fa-location-dot" style="color: var(--cyber-cyan);"></i>
+              <span>Malappuram, Kerala, India</span>
+            </div>
+
+            <p class="hero-desc">
+              Dedicated Cybersecurity Professional specializing in <strong>SIEM threat monitoring</strong>, 
+              <strong>vulnerability assessment</strong>, <strong>incident response</strong>, and <strong>ethical penetration testing</strong>. 
+              Hands-on experience through 100+ simulated attack labs and production SOC alert triaging.
+            </p>
+
+            <div class="hero-actions">
+              <a href="#contact" class="btn btn-primary" id="btn-deploy-contact">
+                <i class="fas fa-paper-plane"></i> Deploy Contact
+              </a>
+              <a href="#skills" class="btn btn-secondary">
+                <i class="fas fa-microchip"></i> Explore Arsenal
+              </a>
+              <a href="#terminal-section" class="btn btn-terminal">
+                <i class="fas fa-code"></i> Launch Terminal
+              </a>
+            </div>
+
+            <!-- Real-time Hero Telemetry HUD Stats -->
+            <div class="hero-telemetry-hud">
+              <div class="hud-stat-item">
+                <span class="hud-stat-val counter-val" data-target="100" data-suffix="+">0+</span>
+                <span class="hud-stat-label">Labs Solved</span>
+              </div>
+              <div class="hud-stat-item">
+                <span class="hud-stat-val counter-val" data-target="50" data-suffix="+">0+</span>
+                <span class="hud-stat-label">Daily Alerts</span>
+              </div>
+              <div class="hud-stat-item">
+                <span class="hud-stat-val counter-val" data-target="35" data-suffix="%">0%</span>
+                <span class="hud-stat-label">MTTD Reduction</span>
+              </div>
+              <div class="hud-stat-item">
+                <span class="hud-stat-val counter-val" data-target="60" data-suffix="%">0%</span>
+                <span class="hud-stat-label">Auto-Log Effort</span>
+              </div>
+            </div>
+          </div>
+
+          <!-- Right Column: 3D Hologram Cyber Shield -->
+          <div class="hero-visual-col">
+            <div class="cyber-hologram-stage">
+              <div class="hologram-shield-frame">
+                <div class="hologram-shield-inner"></div>
+                <div class="shield-core-badge" title="3D WebGL Holographic Shield Core">
+                  <i class="fas fa-shield-halved"></i>
+                  <span>SOC READY</span>
+                </div>
+              </div>
+
+              <!-- Floating Live Telemetry Tags -->
+              <div class="floating-hud-tag tag-top-left">
+                <i class="fas fa-shield-virus" style="color: var(--cyber-green);"></i>
+                <span>SIEM ACTIVE: SPLUNK</span>
+              </div>
+
+              <div class="floating-hud-tag tag-top-right">
+                <i class="fas fa-network-wired" style="color: var(--cyber-cyan);"></i>
+                <span>WIRESHARK: CAPTURING</span>
+              </div>
+
+              <div class="floating-hud-tag tag-bottom-left">
+                <i class="fas fa-user-ninja" style="color: var(--cyber-purple);"></i>
+                <span>CEH & CPT CERTIFIED</span>
+              </div>
+
+              <div class="floating-hud-tag tag-bottom-right">
+                <i class="fas fa-bolt" style="color: var(--cyber-amber);"></i>
+                <span>EDR: DEFENDER 100%</span>
+              </div>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- ==========================================================================
+         Professional Summary & Career Goal Section
+         ========================================================================== -->
+    <section class="section" id="about">
+      <div class="container">
+        <div class="section-header">
+          <div class="section-tag"><i class="fas fa-user-shield"></i> Mission Profile</div>
+          <h2 class="section-title">Professional Summary & Goal</h2>
+          <p class="section-subtitle">A quick briefing on operational capabilities, background, and career trajectory.</p>
+        </div>
+
+        <div class="summary-grid">
+          <!-- Summary Card -->
+          <div class="cyber-card">
+            <div class="card-header-icon">
+              <i class="fas fa-id-badge"></i>
+            </div>
+            <h3 class="card-title">Executive Summary</h3>
+            <p class="card-text">
+              <strong>SOC Analyst</strong> with hands-on experience in SIEM monitoring, threat detection, incident response, vulnerability assessment, log analysis, network security, and security monitoring.
+            </p>
+            <p class="card-text">
+              Practical experience gained through extensive <strong>TryHackMe (100+ labs)</strong> and <strong>Hack The Box</strong> labs covering Active Directory, Windows/Linux security, web application security, digital forensics, threat hunting, and the <strong>MITRE ATT&CK</strong> framework. Proficient with Splunk, Microsoft Sentinel, ELK Stack, Wireshark, Nmap, Nessus, Burp Suite, Python, Bash, and PowerShell fundamentals.
+            </p>
+            <div class="skill-tags-flex">
+              <span class="skill-pill">SIEM Monitoring</span>
+              <span class="skill-pill">Incident Response</span>
+              <span class="skill-pill">Threat Hunting</span>
+              <span class="skill-pill">Active Directory</span>
+              <span class="skill-pill">MITRE ATT&CK</span>
+              <span class="skill-pill">Digital Forensics</span>
+            </div>
+          </div>
+
+          <!-- Goal Card -->
+          <div class="cyber-card">
+            <div class="card-header-icon" style="color: var(--cyber-green); border-color: var(--cyber-green); background: rgba(0, 255, 136, 0.1);">
+              <i class="fas fa-crosshairs"></i>
+            </div>
+            <h3 class="card-title">Target Objective</h3>
+            <p class="card-text">
+              Ready to deploy technical rigor and disciplined incident triage into high-impact security operations centers and red teams.
+            </p>
+            <div class="goal-highlight-box">
+              <p>
+                "To land an entry-level role as a <strong>SOC Analyst</strong> or <strong>Junior Penetration Tester</strong> where I can contribute immediately while continuing to grow."
+              </p>
+            </div>
+            <div class="skill-tags-flex" style="margin-top: 24px;">
+              <span class="skill-pill"><i class="fas fa-check" style="color:var(--cyber-green);"></i> Immediate Availability</span>
+              <span class="skill-pill"><i class="fas fa-check" style="color:var(--cyber-green);"></i> Blue & Red Team Mindset</span>
+              <span class="skill-pill"><i class="fas fa-check" style="color:var(--cyber-green);"></i> Continuous Learner</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ==========================================================================
+         Interactive Cyber Terminal Section
+         ========================================================================== -->
+    <section class="section" id="terminal-section">
+      <div class="container">
+        <div class="section-header">
+          <div class="section-tag"><i class="fas fa-terminal"></i> Command Line Interface</div>
+          <h2 class="section-title">Interactive Cyber Console</h2>
+          <p class="section-subtitle">Interact with my live portfolio CLI. Execute commands to query skills, experience, or trigger a vulnerability scan.</p>
+        </div>
+
+        <div class="terminal-window">
+          <div class="terminal-header">
+            <div class="terminal-dots">
+              <span class="dot red"></span>
+              <span class="dot yellow"></span>
+              <span class="dot green"></span>
+            </div>
+            <div class="terminal-title">sinan@cybersec-ops:~ (bash)</div>
+            <div class="terminal-quick-cmds">
+              <button class="quick-cmd-btn" data-cmd="help">help</button>
+              <button class="quick-cmd-btn" data-cmd="skills">skills</button>
+              <button class="quick-cmd-btn" data-cmd="exp">experience</button>
+              <button class="quick-cmd-btn" data-cmd="scan">scan</button>
+              <button class="quick-cmd-btn" data-cmd="certs">certs</button>
+              <button class="quick-cmd-btn" data-cmd="clear">clear</button>
+            </div>
+          </div>
+
+          <div class="terminal-body" id="terminal-body">
+            <!-- Terminal Output Logs -->
+          </div>
+
+          <div class="cmd-input-container" style="padding: 12px 24px; background: rgba(10, 17, 36, 0.95); border-top: 1px solid rgba(0, 242, 254, 0.15);">
+            <span class="cmd-prompt">sinan@cybersec:~$</span>
+            <input type="text" id="terminal-input" class="terminal-input" placeholder="Type a command (e.g. 'help', 'scan', 'skills') and press Enter..." autocomplete="off" spellcheck="false">
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ==========================================================================
+         Technical Skills & Cyber Arsenal (Next-Gen 3D Interactive Showcase)
+         ========================================================================== -->
+    <section class="section" id="skills">
+      <div class="container">
+        <div class="section-header">
+          <div class="section-tag"><i class="fas fa-cube"></i> 3D Technical Holo-Deck</div>
+          <h2 class="section-title">Core Technical Skills & Arsenal</h2>
+          <p class="section-subtitle">Interact with the 3D WebGL Skill Galaxy or inspect the 3D Holographic Card Matrix.</p>
+        </div>
+
+        <!-- 3D View Mode Switcher -->
+        <div class="skills-mode-switcher">
+          <button class="mode-btn active" id="mode-3d-galaxy-btn">
+            <i class="fas fa-globe"></i> 3D WebGL Galaxy View
+          </button>
+          <button class="mode-btn" id="mode-3d-cards-btn">
+            <i class="fas fa-layer-group"></i> 3D Holo-Card Matrix
+          </button>
+        </div>
+
+        <!-- Mode 1: 3D WebGL Arsenal Galaxy Showcase -->
+        <div class="skills-3d-showcase-container" id="skills-3d-galaxy-container">
+          <!-- 3D Interactive Canvas Stage -->
+          <div class="skills-3d-stage-wrapper">
+            <div id="skills-3d-viewport"></div>
+            <div class="stage-instructions-hud">
+              <i class="fas fa-hand-pointer"></i> Drag to rotate 3D sphere • Click node to inspect
+            </div>
+          </div>
+
+          <!-- 3D Holographic Tool Inspector HUD Panel -->
+          <div class="holo-inspector-panel" id="holo-inspector-panel">
+            <!-- Populated dynamically by js/skills-3d.js -->
+          </div>
+        </div>
+
+        <!-- Category Filters -->
+        <div class="skills-filter-nav">
+          <button class="filter-btn active" data-filter="all">All Arsenal</button>
+          <button class="filter-btn" data-filter="siem">SIEM & EDR</button>
+          <button class="filter-btn" data-filter="network">Network & Forensics</button>
+          <button class="filter-btn" data-filter="offensive">Offensive & PenTest</button>
+          <button class="filter-btn" data-filter="vuln">Vulnerability & Intel</button>
+          <button class="filter-btn" data-filter="scripting">Automation & Scripting</button>
+        </div>
+
+        <!-- Mode 2: Grid of 3D Holographic Skill Cards -->
+        <div class="skills-grid" id="skills-cards-grid">
+          
+          <!-- Splunk Enterprise -->
+          <div class="skill-card" data-category="siem">
+            <div class="skill-card-top">
+              <div class="skill-logo-wrap">
+                <i class="fas fa-chart-line"></i>
+              </div>
+              <div class="skill-meta">
+                <h4>Splunk Enterprise</h4>
+                <span>SIEM & Analytics</span>
+              </div>
+            </div>
+            <p class="skill-desc">
+              Proficient in SIEM monitoring, log parsing, correlation searches, building custom dashboards, and creating threat detection alerts.
+            </p>
+            <div class="skill-action-bar">
+              <span style="font-family:var(--font-mono); font-size:0.75rem; color:var(--cyber-green); font-weight:700;">PROFICIENCY: 92%</span>
+              <button class="skill-sim-btn" onclick="window.runToolSimulation('splunk')">
+                <i class="fas fa-play"></i> Simulate
+              </button>
+            </div>
+            <div class="skill-proficiency-bar">
+              <div class="proficiency-fill" style="width: 92%;"></div>
+            </div>
+          </div>
+
+          <!-- Microsoft Sentinel -->
+          <div class="skill-card" data-category="siem">
+            <div class="skill-card-top">
+              <div class="skill-logo-wrap" style="color: #0082ff; border-color: #0082ff;">
+                <i class="fab fa-microsoft"></i>
+              </div>
+              <div class="skill-meta">
+                <h4>Microsoft Sentinel</h4>
+                <span>Cloud SIEM & SOAR</span>
+              </div>
+            </div>
+            <p class="skill-desc">
+              Experience with cloud-native SIEM for security analytics, KQL querying, threat intelligence integration, and automated incident response logic apps.
+            </p>
+            <div class="skill-action-bar">
+              <span style="font-family:var(--font-mono); font-size:0.75rem; color:var(--cyber-green); font-weight:700;">PROFICIENCY: 88%</span>
+              <button class="skill-sim-btn" onclick="window.runToolSimulation('sentinel')">
+                <i class="fas fa-play"></i> Simulate
+              </button>
+            </div>
+            <div class="skill-proficiency-bar">
+              <div class="proficiency-fill" style="width: 88%;"></div>
+            </div>
+          </div>
+
+          <!-- Wireshark -->
+          <div class="skill-card" data-category="network">
+            <div class="skill-card-top">
+              <div class="skill-logo-wrap" style="color: #00f2fe; border-color: #00f2fe;">
+                <i class="fas fa-water"></i>
+              </div>
+              <div class="skill-meta">
+                <h4>Wireshark</h4>
+                <span>Packet Forensics</span>
+              </div>
+            </div>
+            <p class="skill-desc">
+              Skilled in deep packet inspection, TCP/IP flow reassembly, anomaly detection, network protocol dissection, and investigating suspicious traffic streams.
+            </p>
+            <div class="skill-action-bar">
+              <span style="font-family:var(--font-mono); font-size:0.75rem; color:var(--cyber-green); font-weight:700;">PROFICIENCY: 94%</span>
+              <button class="skill-sim-btn" onclick="window.runToolSimulation('wireshark')">
+                <i class="fas fa-play"></i> Simulate
+              </button>
+            </div>
+            <div class="skill-proficiency-bar">
+              <div class="proficiency-fill" style="width: 94%;"></div>
+            </div>
+          </div>
+
+          <!-- Nessus -->
+          <div class="skill-card" data-category="vuln">
+            <div class="skill-card-top">
+              <div class="skill-logo-wrap" style="color: #ffb703; border-color: #ffb703;">
+                <i class="fas fa-bug"></i>
+              </div>
+              <div class="skill-meta">
+                <h4>Nessus</h4>
+                <span>Vulnerability Scanner</span>
+              </div>
+            </div>
+            <p class="skill-desc">
+              Adept at vulnerability scanning, credentialed assessments, misconfiguration identification, CVE risk scoring, and remediation recommendations.
+            </p>
+            <div class="skill-action-bar">
+              <span style="font-family:var(--font-mono); font-size:0.75rem; color:var(--cyber-green); font-weight:700;">PROFICIENCY: 90%</span>
+              <button class="skill-sim-btn" onclick="window.runToolSimulation('nessus')">
+                <i class="fas fa-play"></i> Simulate
+              </button>
+            </div>
+            <div class="skill-proficiency-bar">
+              <div class="proficiency-fill" style="width: 90%;"></div>
+            </div>
+          </div>
+
+          <!-- Microsoft Defender for Endpoint -->
+          <div class="skill-card" data-category="siem">
+            <div class="skill-card-top">
+              <div class="skill-logo-wrap" style="color: #00ff88; border-color: #00ff88;">
+                <i class="fas fa-shield-virus"></i>
+              </div>
+              <div class="skill-meta">
+                <h4>Defender for Endpoint</h4>
+                <span>EDR & Threat Hunting</span>
+              </div>
+            </div>
+            <p class="skill-desc">
+              Utilizing EDR capabilities for endpoint telemetry inspection, behavioral anomaly detection, automated isolation, and live response investigation.
+            </p>
+            <div class="skill-action-bar">
+              <span style="font-family:var(--font-mono); font-size:0.75rem; color:var(--cyber-green); font-weight:700;">PROFICIENCY: 86%</span>
+              <button class="skill-sim-btn" onclick="window.runToolSimulation('defender')">
+                <i class="fas fa-play"></i> Simulate
+              </button>
+            </div>
+            <div class="skill-proficiency-bar">
+              <div class="proficiency-fill" style="width: 86%;"></div>
+            </div>
+          </div>
+
+          <!-- VirusTotal -->
+          <div class="skill-card" data-category="vuln">
+            <div class="skill-card-top">
+              <div class="skill-logo-wrap" style="color: #4facfe; border-color: #4facfe;">
+                <i class="fas fa-virus"></i>
+              </div>
+              <div class="skill-meta">
+                <h4>VirusTotal</h4>
+                <span>Threat Intelligence</span>
+              </div>
+            </div>
+            <p class="skill-desc">
+              Leveraging multi-engine scanning, hash queries, IP/domain reputation lookups, behavioral reports, and threat graph correlation.
+            </p>
+            <div class="skill-action-bar">
+              <span style="font-family:var(--font-mono); font-size:0.75rem; color:var(--cyber-green); font-weight:700;">PROFICIENCY: 91%</span>
+              <button class="skill-sim-btn" onclick="window.runToolSimulation('virustotal')">
+                <i class="fas fa-play"></i> Simulate
+              </button>
+            </div>
+            <div class="skill-proficiency-bar">
+              <div class="proficiency-fill" style="width: 91%;"></div>
+            </div>
+          </div>
+
+          <!-- Kali Linux & Parrot OS -->
+          <div class="skill-card" data-category="offensive">
+            <div class="skill-card-top">
+              <div class="skill-logo-wrap" style="color: #9d4edd; border-color: #9d4edd;">
+                <i class="fab fa-linux"></i>
+              </div>
+              <div class="skill-meta">
+                <h4>Kali & Parrot OS</h4>
+                <span>Penetration Testing OS</span>
+              </div>
+            </div>
+            <p class="skill-desc">
+              Hands-on mastery of Linux environments for security assessments, shell scripting, network enumeration, privilege escalation, and tool orchestration.
+            </p>
+            <div class="skill-action-bar">
+              <span style="font-family:var(--font-mono); font-size:0.75rem; color:var(--cyber-green); font-weight:700;">PROFICIENCY: 95%</span>
+              <button class="skill-sim-btn" onclick="window.runToolSimulation('kali')">
+                <i class="fas fa-play"></i> Simulate
+              </button>
+            </div>
+            <div class="skill-proficiency-bar">
+              <div class="proficiency-fill" style="width: 95%;"></div>
+            </div>
+          </div>
+
+          <!-- Python Automation -->
+          <div class="skill-card" data-category="scripting">
+            <div class="skill-card-top">
+              <div class="skill-logo-wrap" style="color: #ffb703; border-color: #ffb703;">
+                <i class="fab fa-python"></i>
+              </div>
+              <div class="skill-meta">
+                <h4>Python</h4>
+                <span>Security Automation</span>
+              </div>
+            </div>
+            <p class="skill-desc">
+              Foundational scripting for log parsing, automated triage workflows, API queries, custom port scanners, and security tool scripting.
+            </p>
+            <div class="skill-action-bar">
+              <span style="font-family:var(--font-mono); font-size:0.75rem; color:var(--cyber-green); font-weight:700;">PROFICIENCY: 85%</span>
+              <button class="skill-sim-btn" onclick="window.runToolSimulation('python')">
+                <i class="fas fa-play"></i> Simulate
+              </button>
+            </div>
+            <div class="skill-proficiency-bar">
+              <div class="proficiency-fill" style="width: 85%;"></div>
+            </div>
+          </div>
+
+          <!-- OSINT & Reconnaissance -->
+          <div class="skill-card" data-category="offensive">
+            <div class="skill-card-top">
+              <div class="skill-logo-wrap" style="color: #00f2fe; border-color: #00f2fe;">
+                <i class="fas fa-eye"></i>
+              </div>
+              <div class="skill-meta">
+                <h4>OSINT & Recon</h4>
+                <span>SpiderFoot & WHOIS</span>
+              </div>
+            </div>
+            <p class="skill-desc">
+              Passive and active footprinting, DNS harvesting, domain intelligence, credential leak discovery, and digital surface mapping.
+            </p>
+            <div class="skill-action-bar">
+              <span style="font-family:var(--font-mono); font-size:0.75rem; color:var(--cyber-green); font-weight:700;">PROFICIENCY: 88%</span>
+              <button class="skill-sim-btn" onclick="window.runToolSimulation('osint')">
+                <i class="fas fa-play"></i> Simulate
+              </button>
+            </div>
+            <div class="skill-proficiency-bar">
+              <div class="proficiency-fill" style="width: 88%;"></div>
+            </div>
+          </div>
+
+          <!-- Red Team & AD Exploitation Tools -->
+          <div class="skill-card" data-category="offensive">
+            <div class="skill-card-top">
+              <div class="skill-logo-wrap" style="color: #ff3366; border-color: #ff3366;">
+                <i class="fas fa-network-wired"></i>
+              </div>
+              <div class="skill-meta">
+                <h4>Active Directory Tools</h4>
+                <span>BloodHound & Impacket</span>
+              </div>
+            </div>
+            <p class="skill-desc">
+              Experience with BloodHound graph analysis, Impacket suite, CrackMapExec, Metasploit framework, Burp Suite, and privilege escalation vectors.
+            </p>
+            <div class="skill-action-bar">
+              <span style="font-family:var(--font-mono); font-size:0.75rem; color:var(--cyber-green); font-weight:700;">PROFICIENCY: 87%</span>
+              <button class="skill-sim-btn" onclick="window.runToolSimulation('ad_tools')">
+                <i class="fas fa-play"></i> Simulate
+              </button>
+            </div>
+            <div class="skill-proficiency-bar">
+              <div class="proficiency-fill" style="width: 87%;"></div>
+            </div>
+          </div>
+
+          <!-- Bash & PowerShell -->
+          <div class="skill-card" data-category="scripting">
+            <div class="skill-card-top">
+              <div class="skill-logo-wrap" style="color: #00ff88; border-color: #00ff88;">
+                <i class="fas fa-terminal"></i>
+              </div>
+              <div class="skill-meta">
+                <h4>Bash & PowerShell</h4>
+                <span>CLI & Forensics</span>
+              </div>
+            </div>
+            <p class="skill-desc">
+              Command-line fluency for system administration, event log querying (`Get-WinEvent`), process inspection, and automated log analysis scripts.
+            </p>
+            <div class="skill-action-bar">
+              <span style="font-family:var(--font-mono); font-size:0.75rem; color:var(--cyber-green); font-weight:700;">PROFICIENCY: 86%</span>
+              <button class="skill-sim-btn" onclick="window.runToolSimulation('bash')">
+                <i class="fas fa-play"></i> Simulate
+              </button>
+            </div>
+            <div class="skill-proficiency-bar">
+              <div class="proficiency-fill" style="width: 86%;"></div>
+            </div>
+          </div>
+
+          <!-- Networking & Protocols -->
+          <div class="skill-card" data-category="network">
+            <div class="skill-card-top">
+              <div class="skill-logo-wrap" style="color: #00f2fe; border-color: #00f2fe;">
+                <i class="fas fa-server"></i>
+              </div>
+              <div class="skill-meta">
+                <h4>Network Security</h4>
+                <span>TCP/IP & Firewalls</span>
+              </div>
+            </div>
+            <p class="skill-desc">
+              In-depth grasp of TCP/IP stack, subnetting, DNS, DHCP, HTTP/S, SSL/TLS handshake analysis, IDS/IPS alerting, and firewall rules.
+            </p>
+            <div class="skill-action-bar">
+              <span style="font-family:var(--font-mono); font-size:0.75rem; color:var(--cyber-green); font-weight:700;">PROFICIENCY: 90%</span>
+              <button class="skill-sim-btn" onclick="window.runToolSimulation('network_sec')">
+                <i class="fas fa-play"></i> Simulate
+              </button>
+            </div>
+            <div class="skill-proficiency-bar">
+              <div class="proficiency-fill" style="width: 90%;"></div>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- ==========================================================================
+         Live SOC Radar & Threat Simulation View
+         ========================================================================== -->
+    <section class="section" id="soc-ops">
+      <div class="container">
+        <div class="section-header">
+          <div class="section-tag"><i class="fas fa-radar"></i> Live Telemetry HUD</div>
+          <h2 class="section-title">Security Operations Center Simulation</h2>
+          <p class="section-subtitle">Real-time threat monitoring visualization demonstrating log triage, incident correlation, and defense readiness.</p>
+        </div>
+
+        <div class="soc-radar-container">
+          <!-- Left: Radar Scanner Visualizer -->
+          <div class="radar-scope-wrapper">
+            <div class="radar-grid"></div>
+            <div class="radar-sweep-hand"></div>
+            <div class="radar-crosshair-x"></div>
+            <div class="radar-crosshair-y"></div>
+
+            <!-- Animated Radar Blips -->
+            <div class="radar-blip" style="top: 25%; left: 35%;" title="Threat #1"></div>
+            <div class="radar-blip" style="top: 70%; left: 60%; animation-delay: 0.8s;" title="Threat #2"></div>
+            <div class="radar-blip" style="top: 40%; left: 75%; animation-delay: 1.4s;" title="Threat #3"></div>
+            <div class="radar-blip" style="top: 80%; left: 30%; animation-delay: 1.9s;" title="Threat #4"></div>
+
+            <div style="position: absolute; bottom: 12px; left: 16px; font-family: var(--font-mono); font-size: 0.75rem; color: var(--cyber-cyan);">
+              <i class="fas fa-satellite-dish"></i> RADAR SWEEP: 360° ACTIVE
+            </div>
+          </div>
+
+          <!-- Right: Live SIEM Event Stream -->
+          <div class="soc-logs-panel">
+            <div class="soc-logs-header">
+              <h4>Live SIEM Telemetry Stream</h4>
+              <div class="live-indicator">
+                <span class="status-dot"></span>
+                <span>MONITORING</span>
+              </div>
+            </div>
+
+            <div class="soc-stream-box" id="soc-stream">
+              <!-- Logs populated dynamically by main.js -->
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ==========================================================================
+         Professional Experience & Hands-on Labs
+         ========================================================================== -->
+    <section class="section" id="experience">
+      <div class="container">
+        <div class="section-header">
+          <div class="section-tag"><i class="fas fa-briefcase"></i> Track Record</div>
+          <h2 class="section-title">Professional Experience & Labs</h2>
+          <p class="section-subtitle">Real-world internship operations combined with extensive blue team and red team laboratory training.</p>
+        </div>
+
+        <div class="experience-timeline">
+          
+          <!-- Experience Item 1: RedTeam Hacker Academy Intern -->
+          <div class="timeline-item">
+            <div class="timeline-dot"></div>
+            <div class="timeline-card">
+              <div class="timeline-header">
+                <div>
+                  <h3 class="timeline-role">Cybersecurity Lab Intern</h3>
+                  <div class="timeline-company">RedTeam Hacker Academy</div>
+                </div>
+                <div class="timeline-date">Internship</div>
+              </div>
+              <ul class="timeline-points">
+                <li>
+                  <i class="fas fa-circle-check"></i>
+                  <span>Monitored <strong>50+ SIEM alerts daily</strong> and investigated real-time security events for anomalies and malicious signatures.</span>
+                </li>
+                <li>
+                  <i class="fas fa-circle-check"></i>
+                  <span><strong>Improved detection accuracy by 25%</strong> and reduced Mean Time to Detect (MTTD) by 35% through optimized correlation rules.</span>
+                </li>
+                <li>
+                  <i class="fas fa-circle-check"></i>
+                  <span>Conducted <strong>20+ vulnerability assessments</strong> across network assets, identifying over 100+ potential security weaknesses.</span>
+                </li>
+                <li>
+                  <i class="fas fa-circle-check"></i>
+                  <span>Automated routine log analysis scripts using <strong>Python and Bash</strong>, reducing repetitive manual triage effort by <strong>60%</strong>.</span>
+                </li>
+              </ul>
+            </div>
+          </div>
+
+          <!-- Experience Item 2: TryHackMe -->
+          <div class="timeline-item">
+            <div class="timeline-dot"></div>
+            <div class="timeline-card">
+              <div class="timeline-header">
+                <div>
+                  <h3 class="timeline-role">Active Security Practitioner</h3>
+                  <div class="timeline-company">TryHackMe (100+ Labs Completed)</div>
+                </div>
+                <div class="timeline-date">Continuous Hands-on</div>
+              </div>
+              <ul class="timeline-points">
+                <li>
+                  <i class="fas fa-circle-check"></i>
+                  <span>Completed <strong>100+ intensive labs</strong> covering SOC Level 1, Blue Team fundamentals, Incident Response, and Digital Forensics.</span>
+                </li>
+                <li>
+                  <i class="fas fa-circle-check"></i>
+                  <span>Deep practice in Active Directory security, Windows/Linux event log investigations, Snort rule writing, and Splunk detection engineering.</span>
+                </li>
+                <li>
+                  <i class="fas fa-circle-check"></i>
+                  <span>Mapped simulated adversary techniques to the <strong>MITRE ATT&CK</strong> matrix to formulate robust defense strategies.</span>
+                </li>
+              </ul>
+            </div>
+          </div>
+
+          <!-- Experience Item 3: Hack The Box -->
+          <div class="timeline-item">
+            <div class="timeline-dot"></div>
+            <div class="timeline-card">
+              <div class="timeline-header">
+                <div>
+                  <h3 class="timeline-role">Offensive Security & PenTesting</h3>
+                  <div class="timeline-company">Hack The Box</div>
+                </div>
+                <div class="timeline-date">Laboratory Labs</div>
+              </div>
+              <ul class="timeline-points">
+                <li>
+                  <i class="fas fa-circle-check"></i>
+                  <span>Solved diverse Windows and Linux machines involving service enumeration, exploitation, and local privilege escalation.</span>
+                </li>
+                <li>
+                  <i class="fas fa-circle-check"></i>
+                  <span>Executed Active Directory attack pathways using BloodHound, Impacket, CrackMapExec, and Metasploit.</span>
+                </li>
+                <li>
+                  <i class="fas fa-circle-check"></i>
+                  <span>Authored comprehensive remediation and vulnerability disclosure documentation post-exploitation.</span>
+                </li>
+              </ul>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- ==========================================================================
+         Hands-on Projects & Training Labs
+         ========================================================================== -->
+    <section class="section" id="projects">
+      <div class="container">
+        <div class="section-header">
+          <div class="section-tag"><i class="fas fa-laptop-code"></i> Engineering & Research</div>
+          <h2 class="section-title">Hands-On Projects & Labs</h2>
+          <p class="section-subtitle">Practical security systems, simulated adversary environments, and home lab architectures.</p>
+        </div>
+
+        <div class="projects-grid">
+          
+          <!-- Project 1: OSINT -->
+          <div class="project-card">
+            <div class="project-banner">
+              <i class="fas fa-magnifying-glass-chart"></i>
+            </div>
+            <div class="project-content">
+              <span class="project-category">Intelligence Gathering</span>
+              <h3 class="project-title">OSINT Reconnaissance Framework</h3>
+              <p class="project-desc">
+                Conducted passive intelligence gathering labs using SpiderFoot and WHOIS-based domain reconnaissance across 10+ simulated organizational targets, aggregating threat footprints and leaked asset registers.
+              </p>
+              <div class="skill-tags-flex">
+                <span class="skill-pill">SpiderFoot</span>
+                <span class="skill-pill">WHOIS</span>
+                <span class="skill-pill">Recon-ng</span>
+                <span class="skill-pill">DNS Mining</span>
+              </div>
+            </div>
+          </div>
+
+          <!-- Project 2: Proxmox Home Lab -->
+          <div class="project-card">
+            <div class="project-banner" style="background: linear-gradient(135deg, rgba(0, 255, 136, 0.15), rgba(0, 242, 254, 0.15));">
+              <i class="fas fa-server" style="color: var(--cyber-green);"></i>
+            </div>
+            <div class="project-content">
+              <span class="project-category">Infrastructure & Virtualization</span>
+              <h3 class="project-title">Proxmox Cybersecurity Home Lab</h3>
+              <p class="project-desc">
+                Architected and deployed a dedicated multi-node cybersecurity home lab utilizing Proxmox VE. Configured segmented VLANs, Active Directory domain controllers, pfSense firewalls, and logging endpoints for continuous malware testing and SIEM ingestion.
+              </p>
+              <div class="skill-tags-flex">
+                <span class="skill-pill">Proxmox VE</span>
+                <span class="skill-pill">Active Directory</span>
+                <span class="skill-pill">pfSense</span>
+                <span class="skill-pill">VLAN Segmentation</span>
+              </div>
+            </div>
+          </div>
+
+          <!-- Project 3: Phishing Simulation -->
+          <div class="project-card">
+            <div class="project-banner" style="background: linear-gradient(135deg, rgba(255, 51, 102, 0.15), rgba(157, 78, 221, 0.15));">
+              <i class="fas fa-envelope-open-text" style="color: var(--cyber-red);"></i>
+            </div>
+            <div class="project-content">
+              <span class="project-category">Social Engineering & Defense</span>
+              <h3 class="project-title">Phishing Simulation & Awareness</h3>
+              <p class="project-desc">
+                Executed social engineering awareness setups using MaxPhisher in controlled environments. Analyzed credential capture methods and formulated user defense strategies and mail security policies.
+              </p>
+              <div class="skill-tags-flex">
+                <span class="skill-pill">MaxPhisher</span>
+                <span class="skill-pill">Email Security</span>
+                <span class="skill-pill">SPF/DKIM/DMARC</span>
+                <span class="skill-pill">Defense Posture</span>
+              </div>
+            </div>
+          </div>
+
+          <!-- Project 4: Linux Pentest Environment -->
+          <div class="project-card">
+            <div class="project-banner" style="background: linear-gradient(135deg, rgba(157, 78, 221, 0.15), rgba(79, 172, 254, 0.15));">
+              <i class="fab fa-ubuntu" style="color: var(--cyber-purple);"></i>
+            </div>
+            <div class="project-content">
+              <span class="project-category">Offensive Environment</span>
+              <h3 class="project-title">Linux Hardening & PenTest Setup</h3>
+              <p class="project-desc">
+                Configured and hardened custom Kali Linux and Parrot Security OS setups for security assessments, including automated network scanning scripts, kernel audit rules, and vulnerability identification suites.
+              </p>
+              <div class="skill-tags-flex">
+                <span class="skill-pill">Kali Linux</span>
+                <span class="skill-pill">Parrot OS</span>
+                <span class="skill-pill">Hardening</span>
+                <span class="skill-pill">Bash Automation</span>
+              </div>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- ==========================================================================
+         Certifications & Credentials
+         ========================================================================== -->
+    <section class="section" id="certifications">
+      <div class="container">
+        <div class="section-header">
+          <div class="section-tag"><i class="fas fa-certificate"></i> Verified Badges</div>
+          <h2 class="section-title">Certifications & Credentials</h2>
+          <p class="section-subtitle">Industry-recognized credentials validating ethical hacking, penetration testing, and corporate simulation readiness.</p>
+        </div>
+
+        <div class="certs-grid">
+          
+          <!-- Cert 1: CEH -->
+          <div class="cert-card">
+            <span class="cert-badge-number">#01</span>
+            <div class="cert-icon-wrapper">
+              <i class="fas fa-user-secret"></i>
+            </div>
+            <h3 class="cert-title">Certified Ethical Hacker</h3>
+            <div class="cert-issuer">EC-Council</div>
+            <p class="cert-desc">
+              Industry-recognized gold standard certification in ethical hacking methodologies, penetration testing frameworks, and countermeasure deployments.
+            </p>
+          </div>
+
+          <!-- Cert 2: CPT -->
+          <div class="cert-card">
+            <span class="cert-badge-number">#02</span>
+            <div class="cert-icon-wrapper" style="color: var(--cyber-green); border-color: var(--cyber-green);">
+              <i class="fas fa-shield-virus"></i>
+            </div>
+            <h3 class="cert-title">Certified Penetration Tester</h3>
+            <div class="cert-issuer">Red Team Hacker Academy</div>
+            <p class="cert-desc">
+              Security credential focusing on real-world hands-on offensive penetration testing concepts, vulnerability weaponization, and remediation techniques.
+            </p>
+          </div>
+
+          <!-- Cert 3: Deloitte Australia -->
+          <div class="cert-card">
+            <span class="cert-badge-number">#03</span>
+            <div class="cert-icon-wrapper" style="color: #4facfe; border-color: #4facfe;">
+              <i class="fas fa-building-shield"></i>
+            </div>
+            <h3 class="cert-title">Deloitte Australia</h3>
+            <div class="cert-issuer">Cyber Job Simulation</div>
+            <p class="cert-desc">
+              Practical cyber job simulation focusing on real-world enterprise security operations, risk analysis, and corporate security program governance.
+            </p>
+          </div>
+
+          <!-- Cert 4: Tata -->
+          <div class="cert-card">
+            <span class="cert-badge-number">#04</span>
+            <div class="cert-icon-wrapper" style="color: var(--cyber-purple); border-color: var(--cyber-purple);">
+              <i class="fas fa-magnifying-glass-shield"></i>
+            </div>
+            <h3 class="cert-title">Tata Cyber Simulation</h3>
+            <div class="cert-issuer">Cybersecurity Analyst Program</div>
+            <p class="cert-desc">
+              Applied security concepts, incident investigation scenarios, security advisory authoring, and threat intelligence synthesis.
+            </p>
+          </div>
+
+        </div>
+
+        <!-- Education Card -->
+        <div class="edu-wrapper">
+          <div class="edu-card">
+            <div class="edu-icon">
+              <i class="fas fa-graduation-cap"></i>
+            </div>
+            <div class="edu-info">
+              <h4>University of Calicut</h4>
+              <div class="edu-degree">Bachelor's Degree</div>
+              <div class="edu-date"><i class="fas fa-calendar-alt"></i> June 2022 - March 2025</div>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- ==========================================================================
+         Contact Command Station
+         ========================================================================== -->
+    <section class="section" id="contact">
+      <div class="container">
+        <div class="section-header">
+          <div class="section-tag"><i class="fas fa-satellite"></i> Secure Channel</div>
+          <h2 class="section-title">Let's Connect</h2>
+          <p class="section-subtitle">Always open to discussions regarding SOC Analyst, PenTester, or cybersecurity roles, internships, and collaborations.</p>
+        </div>
+
+        <div class="contact-grid">
+          
+          <!-- Contact Info & Channels -->
+          <div class="contact-info-card">
+            <h3>Get In Touch</h3>
+            <p>
+              Whether you're a recruiter, hiring manager, or fellow security professional, I'd love to connect and explore how I can contribute to defending your organization's perimeter.
+            </p>
+
+            <div class="contact-channels-list">
+              
+              <!-- Email 1 -->
+              <div class="contact-channel-item">
+                <div class="channel-left">
+                  <i class="fas fa-envelope"></i>
+                  <div>
+                    <div class="channel-name">Primary Email</div>
+                    <div class="channel-val">sinanshazzrp31@gmail.com</div>
+                  </div>
+                </div>
+                <button class="copy-btn" data-copy="sinanshazzrp31@gmail.com" title="Copy to clipboard">
+                  <i class="fas fa-copy"></i> Copy
+                </button>
+              </div>
+
+              <!-- Email 2 -->
+              <div class="contact-channel-item">
+                <div class="channel-left">
+                  <i class="fas fa-at"></i>
+                  <div>
+                    <div class="channel-name">Alternative Email</div>
+                    <div class="channel-val">wwwsinanrp@gmail.com</div>
+                  </div>
+                </div>
+                <button class="copy-btn" data-copy="wwwsinanrp@gmail.com" title="Copy to clipboard">
+                  <i class="fas fa-copy"></i> Copy
+                </button>
+              </div>
+
+              <!-- Location -->
+              <div class="contact-channel-item">
+                <div class="channel-left">
+                  <i class="fas fa-map-pin"></i>
+                  <div>
+                    <div class="channel-name">Location</div>
+                    <div class="channel-val">Malappuram, Kerala, India</div>
+                  </div>
+                </div>
+              </div>
+
+            </div>
+
+            <!-- Social Links -->
+            <div class="social-links-bar">
+              <a href="https://www.linkedin.com/in/muhammedsinan-cybersecurity" target="_blank" rel="noopener noreferrer" class="social-btn" title="LinkedIn Profile">
+                <i class="fab fa-linkedin-in"></i>
+              </a>
+              <a href="https://github.com/Muhammedsinanrp" target="_blank" rel="noopener noreferrer" class="social-btn" title="GitHub Profile">
+                <i class="fab fa-github"></i>
+              </a>
+              <a href="https://www.instagram.com/_sinan.xx/" target="_blank" rel="noopener noreferrer" class="social-btn" title="Instagram Profile">
+                <i class="fab fa-instagram"></i>
+              </a>
+              <a href="mailto:sinanshazzrp31@gmail.com" class="social-btn" title="Direct Email">
+                <i class="fas fa-paper-plane"></i>
+              </a>
+            </div>
+          </div>
+
+          <!-- Contact Form -->
+          <div class="contact-form-card">
+            <h3 style="font-family: var(--font-cyber); font-size: 1.4rem; color: #fff; margin-bottom: 20px;">
+              <i class="fas fa-lock" style="color: var(--cyber-green); margin-right: 8px;"></i> Encrypted Message Dispatch
+            </h3>
+
+            <form id="cyber-contact-form">
+              <div class="form-group">
+                <label for="sender-name"><i class="fas fa-user"></i> Full Name *</label>
+                <input type="text" id="sender-name" class="form-control" placeholder="e.g. John Doe" required>
+              </div>
+
+              <div class="form-group">
+                <label for="sender-email"><i class="fas fa-envelope"></i> Email Address *</label>
+                <input type="email" id="sender-email" class="form-control" placeholder="e.g. john@company.com" required>
+              </div>
+
+              <div class="form-group">
+                <label for="sender-subject"><i class="fas fa-tag"></i> Subject / Role Interest</label>
+                <input type="text" id="sender-subject" class="form-control" placeholder="e.g. SOC Analyst Role / Project Opportunity">
+              </div>
+
+              <div class="form-group">
+                <label for="sender-message"><i class="fas fa-comment-dots"></i> Message Payload *</label>
+                <textarea id="sender-message" class="form-control" placeholder="Type your message or role specifications here..." required></textarea>
+              </div>
+
+              <button type="submit" class="btn btn-primary" style="width: 100%;">
+                <i class="fas fa-shield-halved"></i> Encrypt & Dispatch Message
+              </button>
+            </form>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- ==========================================================================
+         Footer
+         ========================================================================== -->
+    <footer class="site-footer">
+      <div class="container footer-content">
+        <div class="footer-left">
+          © 2026 <span>Muhammed Sinan</span>. Built with 3D WebGL & Cyber Security Design.
+        </div>
+        <div class="footer-right">
+          <a href="https://www.linkedin.com/in/muhammedsinan-cybersecurity" target="_blank" rel="noopener noreferrer" style="color: var(--cyber-cyan); text-decoration: none; font-family: var(--font-mono); font-size: 0.85rem;">
+            <i class="fab fa-linkedin"></i> LinkedIn
+          </a>
+          <a href="https://github.com/Muhammedsinanrp" target="_blank" rel="noopener noreferrer" style="color: var(--cyber-cyan); text-decoration: none; font-family: var(--font-mono); font-size: 0.85rem;">
+            <i class="fab fa-github"></i> GitHub
+          </a>
+        </div>
+      </div>
+    </footer>
+
+  </div>
+
+  <!-- Three.js CDN -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+
+  <!-- App Scripts -->
+  <script src="js/sound-fx.js"></script>
+  <script src="js/three-scene.js"></script>
+  <script src="js/skills-3d.js"></script>
+  <script src="js/terminal.js"></script>
+  <script src="js/main.js"></script>
+</body>
+</html>
