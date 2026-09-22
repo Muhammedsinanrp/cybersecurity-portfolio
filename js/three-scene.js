@@ -96,58 +96,101 @@ class Cyber3DScene {
       this.coreGroup.position.set(0, 1.5, -4);
     }
 
-    // Inner Glowing Core (Icosahedron Wireframe)
-    const innerGeo = new THREE.IcosahedronGeometry(2.8, 2);
+    // 1. Black Hat Stealth Chassis - Inner Faceted Core
+    const innerGeo = new THREE.IcosahedronGeometry(2.6, 1);
     const innerMat = new THREE.MeshStandardMaterial({
       color: 0x00f2fe,
       wireframe: true,
       transparent: true,
-      opacity: 0.35,
-      roughness: 0.2,
-      metalness: 0.8
+      opacity: 0.55,
+      roughness: 0.15,
+      metalness: 0.95
     });
     this.innerCore = new THREE.Mesh(innerGeo, innerMat);
     this.coreGroup.add(this.innerCore);
 
-    // Outer Geodesic Sphere
-    const sphereGeo = new THREE.SphereGeometry(3.6, 24, 24);
+    // 2. Faceted Central Dark Crystal / Black Hat Core Void
+    const crystalGeo = new THREE.OctahedronGeometry(1.8, 0);
+    const crystalMat = new THREE.MeshStandardMaterial({
+      color: 0x050c1e,
+      emissive: 0x00ff88,
+      emissiveIntensity: 0.35,
+      roughness: 0.2,
+      metalness: 0.9
+    });
+    this.crystalCore = new THREE.Mesh(crystalGeo, crystalMat);
+    this.coreGroup.add(this.crystalCore);
+
+    // 3. Outer Geodesic Defensive Shield Wireframe
+    const sphereGeo = new THREE.SphereGeometry(3.8, 28, 28);
     const sphereMat = new THREE.MeshBasicMaterial({
       color: 0x00ff88,
       wireframe: true,
       transparent: true,
-      opacity: 0.18
+      opacity: 0.22
     });
     this.wireOrb = new THREE.Mesh(sphereGeo, sphereMat);
     this.coreGroup.add(this.wireOrb);
 
-    // Orbital Hologram Rings
-    const ringRadii = [4.4, 5.2, 6.0];
-    const ringColors = [0x00f2fe, 0x9d4edd, 0x00ff88];
+    // 4. Sweeping Laser Radar Scanner Line
+    const laserGeo = new THREE.BufferGeometry();
+    const laserVerts = new Float32Array([0, 0, 0, 4.8, 0, 0]);
+    laserGeo.setAttribute('position', new THREE.BufferAttribute(laserVerts, 3));
+    const laserMat = new THREE.LineBasicMaterial({
+      color: 0x00f2fe,
+      linewidth: 2,
+      transparent: true,
+      opacity: 0.85
+    });
+    this.laserScanner = new THREE.Line(laserGeo, laserMat);
+    this.coreGroup.add(this.laserScanner);
+
+    // 5. Decryption Cipher Orbital Rings
+    const ringRadii = [4.5, 5.3, 6.2];
+    const ringColors = [0x00f2fe, 0x00ff88, 0x9d4edd];
 
     ringRadii.forEach((radius, idx) => {
-      const ringGeo = new THREE.RingGeometry(radius, radius + 0.04, 64);
+      const ringGeo = new THREE.RingGeometry(radius, radius + 0.05, 72);
       const ringMat = new THREE.MeshBasicMaterial({
         color: ringColors[idx],
         side: THREE.DoubleSide,
         transparent: true,
-        opacity: 0.45
+        opacity: 0.55
       });
       const ring = new THREE.Mesh(ringGeo, ringMat);
       
-      // Random tilt for orbital paths
-      ring.rotation.x = Math.PI / (2 + idx * 0.4);
+      ring.rotation.x = Math.PI / (2 + idx * 0.35);
       ring.rotation.y = (Math.PI / 4) * idx;
       
       this.outerRings.push({
         mesh: ring,
-        speedX: 0.003 * (idx % 2 === 0 ? 1 : -1),
-        speedY: 0.005 * (idx % 2 === 0 ? -1 : 1),
-        speedZ: 0.002 * (idx + 1)
+        speedX: 0.004 * (idx % 2 === 0 ? 1 : -1),
+        speedY: 0.006 * (idx % 2 === 0 ? -1 : 1),
+        speedZ: 0.003 * (idx + 1)
       });
       this.coreGroup.add(ring);
     });
 
+    // 6. Interactive Click Pulse Listener
+    window.addEventListener('click', () => {
+      if (this.coreGroup) {
+        this.pulseCore();
+      }
+    });
+
     this.scene.add(this.coreGroup);
+  }
+
+  pulseCore() {
+    if (!this.coreGroup) return;
+    this.coreGroup.scale.set(1.18, 1.18, 1.18);
+    if (this.crystalCore) {
+      this.crystalCore.material.emissiveIntensity = 1.0;
+    }
+    setTimeout(() => {
+      if (this.coreGroup) this.coreGroup.scale.set(1, 1, 1);
+      if (this.crystalCore) this.crystalCore.material.emissiveIntensity = 0.35;
+    }, 280);
   }
 
   buildParticleField() {
@@ -250,6 +293,15 @@ class Cyber3DScene {
     if (this.wireOrb) {
       this.wireOrb.rotation.x -= 0.003;
       this.wireOrb.rotation.y -= 0.004;
+    }
+
+    if (this.crystalCore) {
+      this.crystalCore.rotation.x -= 0.008;
+      this.crystalCore.rotation.y += 0.012;
+    }
+
+    if (this.laserScanner) {
+      this.laserScanner.rotation.z += 0.035;
     }
 
     // Rotate Rings

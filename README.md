@@ -5,6 +5,7 @@ An ultra-modern, interactive **3D WebGL Cybersecurity Command Station** and port
 ![Cybersecurity Portfolio](https://img.shields.io/badge/Security-SOC%20%7C%20Ethical%20Hacker-00f2fe?style=for-the-badge&logo=shield)
 ![Three.js](https://img.shields.io/badge/Three.js-WebGL%203D-black?style=for-the-badge&logo=three.js)
 ![CEH & CPT](https://img.shields.io/badge/Certifications-CEH%20%7C%20CPT-00ff88?style=for-the-badge)
+![Google Cybersecurity](https://img.shields.io/badge/Google-Cybersecurity%20Professional-4285F4?style=for-the-badge&logo=google)
 
 ---
 
@@ -18,6 +19,26 @@ An ultra-modern, interactive **3D WebGL Cybersecurity Command Station** and port
 - **🔊 Web Audio API Synthesizer**: Pure client-side sci-fi sound effects and audio telemetry (zero external audio file dependencies).
 - **🎴 3D Holographic Card Matrix**: Multi-layer perspective tilt cards with sweeping 3D laser scanlines.
 - **🔒 Encrypted Contact Dispatch Station**: Secure message dispatch simulator and 1-click email copy.
+
+---
+
+## 🛡️ Selected SOC Projects & Labs
+
+1. **[Network Threat Detection Lab — Wazuh SIEM + Snort IDS + Wireshark](https://github.com/Muhammedsinanrp/Network-Threat-Detection-Lab)**
+   - **Stack**: Ubuntu 22.04, Wazuh SIEM, Snort IDS, Windows Server 2022, Kali Linux, Wireshark/tcpdump, VMware.
+   - **Highlights**: Simulated Nmap reconnaissance, RDP credential brute force, and DNS C2 tunneling; generated **642 security alerts**, created custom Snort rules, correlated host and network telemetry, investigated PCAPs, and mapped detections to MITRE ATT&CK.
+
+2. **[SOC Home Lab — Splunk SIEM & Attack Detection](https://github.com/Muhammedsinanrp/SOC-Home-Lab)**
+   - **Stack**: Kali Linux, Windows Server 2022, Splunk Enterprise, Splunk Universal Forwarder.
+   - **Highlights**: Implemented SPL detections and dashboards for failed logons, brute force, network reconnaissance, and privilege escalation; documented incident-response runbooks and adversary attack simulations.
+
+3. **[Enterprise Windows Log Analysis & SOC Threat Investigation Lab](https://github.com/Muhammedsinanrp/Enterprise-ELK-SIEM)**
+   - **Stack**: Splunk SIEM, Elastic SIEM / ELK Stack, Sigma Rules, Windows Event Logs (4624, 4625, 4672, 4720).
+   - **Highlights**: End-to-end Windows log investigation workflow across Splunk and Elastic SIEM, including RDP brute-force detection, Windows Event ID analysis, MITRE ATT&CK mapping, SPL/KQL/EQL detection logic, and Sigma rules.
+
+4. **[Python Packet Sniffer — Deep Packet Inspection](https://github.com/Muhammedsinanrp/Packet-Sniffer)**
+   - **Stack**: Python 3, Scapy, Raw Sockets, TCP/IP Layer 2-4 Analysis.
+   - **Highlights**: Real-time packet capture and analysis tool to parse TCP/IP traffic and flag suspicious connections, abnormal packet headers, port sweep signatures, and unusual protocol behavior.
 
 ---
 

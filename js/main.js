@@ -346,13 +346,13 @@ function initHUDControls() {
 
   // Theme Toggle Button
   const themeBtn = document.getElementById('theme-toggle-btn');
-  const themes = ['', 'theme-emerald', 'theme-crimson'];
+  const themes = ['', 'theme-blackhat', 'theme-emerald', 'theme-crimson'];
   let currentThemeIdx = 0;
   if (themeBtn) {
     themeBtn.addEventListener('click', () => {
       currentThemeIdx = (currentThemeIdx + 1) % themes.length;
       document.body.className = themes[currentThemeIdx];
-      const names = ['Cyan Cyber Command', 'Emerald Matrix', 'Crimson Threat Defense'];
+      const names = ['Cyan Cyber Command', 'Black Hat Hacker Overdrive', 'Emerald Matrix', 'Crimson Threat Defense'];
       showToast(`🎨 Theme: ${names[currentThemeIdx]}`);
       if (window.cyberSound) window.cyberSound.playHover();
     });
@@ -499,3 +499,163 @@ function showToast(message) {
     setTimeout(() => toast.remove(), 300);
   }, 3200);
 }
+
+/* ==========================================================================
+   11. Selected SOC Project Telemetry Simulator & Modal Logic
+   ========================================================================== */
+window.closeTelemetryModal = function() {
+  const modal = document.getElementById('project-telemetry-modal');
+  if (modal) {
+    modal.classList.remove('active');
+    document.body.style.overflow = '';
+  }
+};
+
+window.runProjectTelemetrySim = function(projectId) {
+  const modal = document.getElementById('project-telemetry-modal');
+  const modalTitle = document.getElementById('modal-project-title');
+  const terminalTitle = document.getElementById('modal-terminal-title');
+  const hudStats = document.getElementById('modal-hud-stats');
+  const output = document.getElementById('modal-terminal-output');
+  const githubLink = document.getElementById('modal-github-link');
+
+  if (!modal || !output) return;
+
+  if (window.cyberSound) window.cyberSound.playRadarPing();
+
+  modal.classList.add('active');
+  document.body.style.overflow = 'hidden';
+
+  // Loading state
+  output.innerHTML = '<div class="terminal-sim-loader"><i class="fas fa-spinner fa-spin"></i> Establishing secure telemetry stream & parsing raw PCAP / SIEM logs...</div>';
+
+  setTimeout(() => {
+    if (window.cyberSound) window.cyberSound.playAccessGranted();
+
+    switch (projectId) {
+      case 'wazuh':
+        modalTitle.textContent = 'NETWORK THREAT DETECTION LAB (WAZUH + SNORT + WIRESHARK)';
+        terminalTitle.textContent = 'WAZUH SIEM TELEMETRY STREAM & SNORT IDS ALERTS';
+        githubLink.href = 'https://github.com/Muhammedsinanrp/Network-Threat-Detection-Lab';
+        hudStats.innerHTML = `
+          <div class="m-stat"><span class="m-lbl">TOTAL ALERTS</span><span class="m-val text-cyan">642</span></div>
+          <div class="m-stat"><span class="m-lbl">IDS ENGINE</span><span class="m-val text-green">Snort 3.1</span></div>
+          <div class="m-stat"><span class="m-lbl">MITRE ATT&CK</span><span class="m-val text-amber">T1110 / T1071.004</span></div>
+          <div class="m-stat"><span class="m-lbl">SEVERITY</span><span class="m-val text-red">CRITICAL (Level 12)</span></div>
+        `;
+        output.innerHTML = `
+<pre class="telemetry-log">
+<span class="log-cyan">[WAZUH-MANAGER-ALERT]</span> rule.id: 5716 | level: 12 | desc: "Multiple SSH/RDP failed logins followed by success"
+<span class="log-dim">Timestamp: 2026-09-22T08:14:32.402+0000 | Agent: ubuntu-soc-endpoint (001)</span>
+{
+  "timestamp": "2026-09-22T08:14:32Z",
+  "rule": { "id": "100201", "level": 12, "description": "Snort IDS Alert: High Rate TCP SYN Scan Detected", "mitre": ["T1046", "T1110"] },
+  "agent": { "id": "001", "name": "srv-windows-2022", "ip": "192.168.10.15" },
+  "data": {
+    "src_ip": "192.168.10.42",
+    "dst_ip": "192.168.10.15",
+    "dst_port": 3389,
+    "proto": "TCP",
+    "snort_rule": "alert tcp any any -> $HOME_NET 3389 (msg:\\"ET SCAN Potential RDP Brute Force\\"; flags:S; threshold:type both, track by_src, count 20, seconds 60; sid:2001214;)"
+  }
+}
+
+<span class="log-green">[+] Snort Rule Triggered:</span> sid:2001214 -> 42 repeated SYN packets observed to port 3389 in 12.4s
+<span class="log-green">[+] Wireshark Stream Analysis:</span> PCAP capture confirmed Nmap NSE script "rdp-enum-encryption" signature
+<span class="log-green">[+] SOC Triage Action:</span> Null-routed 192.168.10.42 at perimeter gateway; incident ticket INC-4920 closed with remediation verified.
+</pre>`;
+        break;
+
+      case 'splunk':
+        modalTitle.textContent = 'SOC HOME LAB — SPLUNK SIEM & ATTACK DETECTION';
+        terminalTitle.textContent = 'SPLUNK ENTERPRISE SPL SEARCH DISPATCH & TELEMETRY';
+        githubLink.href = 'https://github.com/Muhammedsinanrp/SOC-Home-Lab';
+        hudStats.innerHTML = `
+          <div class="m-stat"><span class="m-lbl">FORWARDER</span><span class="m-val text-cyan">Universal 9.1</span></div>
+          <div class="m-stat"><span class="m-lbl">EVENT CODE</span><span class="m-val text-green">4625 / 4672</span></div>
+          <div class="m-stat"><span class="m-lbl">DETECTION</span><span class="m-val text-amber">Brute Force & PrivEsc</span></div>
+          <div class="m-stat"><span class="m-lbl">RUNBOOK</span><span class="m-val text-red">Active AD Triage</span></div>
+        `;
+        output.innerHTML = `
+<pre class="telemetry-log">
+<span class="log-cyan">[SPLUNK SPL QUERY DISPATCH]</span>
+index=wineventlog EventCode=4625 
+| stats count by TargetUserName, WorkstationName, IpAddress 
+| where count > 15 
+| eval ThreatLevel=if(count > 50, "CRITICAL", "HIGH")
+| sort -count
+
+<span class="log-dim">Matching Events: 84 | Query Execution Time: 0.18s</span>
+------------------------------------------------------------------------------------------
+| TargetUserName       | WorkstationName | IpAddress       | count | ThreatLevel |
+------------------------------------------------------------------------------------------
+| Administrator        | KALI-ATTACK     | 10.0.0.105      | 68    | CRITICAL    |
+| svc-backup           | WORKSTATION-04  | 10.0.0.112      | 24    | HIGH        |
+| jdoe                 | HR-LAPTOP-02    | 10.0.0.189      | 16    | HIGH        |
+------------------------------------------------------------------------------------------
+
+<span class="log-green">[+] Incident Response Runbook Executed:</span> IR-WIN-042 (Account Lockout & Host Isolation)
+<span class="log-green">[+] Splunk Dashboard Alert:</span> Triggered automated webhook to SOC analyst queue.
+<span class="log-green">[+] Attacker Artifacts:</span> Process lineage identified cmd.exe spawning Mimikatz memory read attempt.
+</pre>`;
+        break;
+
+      case 'elk':
+        modalTitle.textContent = 'ENTERPRISE WINDOWS LOG ANALYSIS & THREAT INVESTIGATION';
+        terminalTitle.textContent = 'ELASTIC SIEM EQL/KQL INVESTIGATION & SIGMA DETECTIONS';
+        githubLink.href = 'https://github.com/Muhammedsinanrp/Enterprise-ELK-SIEM';
+        hudStats.innerHTML = `
+          <div class="m-stat"><span class="m-lbl">CORRELATION</span><span class="m-val text-cyan">Splunk + ELK</span></div>
+          <div class="m-stat"><span class="m-lbl">RULE FORMAT</span><span class="m-val text-green">Sigma Standard</span></div>
+          <div class="m-stat"><span class="m-lbl">LOGON TYPE</span><span class="m-val text-amber">Type 10 (RemoteInteractive)</span></div>
+          <div class="m-stat"><span class="m-lbl">STATUS</span><span class="m-val text-red">CONTAINED</span></div>
+        `;
+        output.innerHTML = `
+<pre class="telemetry-log">
+<span class="log-cyan">[SIGMA RULE EVALUATION]</span> rules/windows/builtin/security/win_rdp_bruteforce.yml
+title: RDP Brute Force Followed by Successful Logon
+status: production
+references: ['https://attack.mitre.org/techniques/T1110/']
+
+<span class="log-cyan">[ELASTIC SIEM EQL QUERY]</span>
+sequence by winlog.computer_name with maxspan=2m
+  [authentication where winlog.event_id == 4625 and winlog.logon_type == 10] with runs >= 5
+  [authentication where winlog.event_id == 4624 and winlog.logon_type == 10]
+
+<span class="log-dim">Correlated 1 Host Match: DC-PROD-01.domain.local (192.168.1.10)</span>
+<span class="log-green">[✓] Event ID 4625:</span> 38 failed logon attempts within 45 seconds targeting user "DomainAdmin".
+<span class="log-green">[✓] Event ID 4624:</span> Successful logon achieved at 08:14:45 UTC.
+<span class="log-green">[✓] Event ID 4672:</span> Special privileges assigned to new logon session (SeDebugPrivilege, SeTcbPrivilege).
+<span class="log-green">[✓] SOC Remediation:</span> Revoked compromised session token, forced enterprise-wide Kerberos ticket reset (krbtgt).
+</pre>`;
+        break;
+
+      case 'sniffer':
+        modalTitle.textContent = 'PYTHON PACKET SNIFFER — DEEP PACKET INSPECTION';
+        terminalTitle.textContent = 'SCAPY REAL-TIME PACKET ENGINE & ANOMALY DETECTOR';
+        githubLink.href = 'https://github.com/Muhammedsinanrp/Packet-Sniffer';
+        hudStats.innerHTML = `
+          <div class="m-stat"><span class="m-lbl">ENGINE</span><span class="m-val text-cyan">Python 3 / Scapy</span></div>
+          <div class="m-stat"><span class="m-lbl">PACKETS/SEC</span><span class="m-val text-green">1,840 pps</span></div>
+          <div class="m-stat"><span class="m-lbl">ANOMALIES</span><span class="m-val text-amber">TCP Port Sweep</span></div>
+          <div class="m-stat"><span class="m-lbl">SOCKET</span><span class="m-val text-red">AF_PACKET Raw</span></div>
+        `;
+        output.innerHTML = `
+<pre class="telemetry-log">
+<span class="log-cyan">[PYTHON SCAPY PACKET CAPTURE INITIALIZED]</span> Interface: eth0 | Filter: "ip and (tcp or udp)"
+Capturing raw frames across data link layer...
+
+<span class="log-dim">[FRAME 001]</span> IP: 192.168.1.105:44321 -> 192.168.1.1:80 | TTL: 64 | Proto: TCP [SYN] | Win: 1024
+<span class="log-dim">[FRAME 002]</span> IP: 192.168.1.105:44322 -> 192.168.1.1:22 | TTL: 64 | Proto: TCP [SYN] | Win: 1024
+<span class="log-dim">[FRAME 003]</span> IP: 192.168.1.105:44323 -> 192.168.1.1:443 | TTL: 64 | Proto: TCP [SYN] | Win: 1024
+<span class="log-dim">[FRAME 004]</span> IP: 192.168.1.105:44324 -> 192.168.1.1:3389 | TTL: 64 | Proto: TCP [SYN] | Win: 1024
+
+<span class="log-amber">[!] ANOMALY DETECTED:</span> Rapid sequential port connection sequence from 192.168.1.105 (Nmap Stealth SYN Scan signature).
+<span class="log-green">[+] TCP Window Size Anomaly:</span> Fixed window size (1024) indicates automated scanning tool rather than legitimate browser.
+<span class="log-green">[+] Heuristic Engine:</span> Anomaly score: 96/100 -> Flagged IP added to real-time banlist.
+<span class="log-green">[+] Output Exported:</span> Session PCAP written to /logs/capture_20260922_threat.pcap for forensic review.
+</pre>`;
+        break;
+    }
+  }, 600);
+};

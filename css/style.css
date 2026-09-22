@@ -48,6 +48,20 @@
 }
 
 /* Theme Variations */
+body.theme-blackhat {
+  --bg-primary: #020408;
+  --bg-secondary: #050a14;
+  --bg-card: rgba(4, 10, 22, 0.94);
+  --cyber-cyan: #00ff88;
+  --cyber-blue: #00f2fe;
+  --cyber-green: #00ff66;
+  --cyber-red: #ff0055;
+  --text-cyber: #00ff88;
+  --border-cyan: rgba(0, 255, 136, 0.35);
+  --border-cyan-bright: rgba(0, 255, 136, 0.85);
+  --glow-cyan: 0 0 30px rgba(0, 255, 136, 0.45);
+}
+
 body.theme-emerald {
   --cyber-cyan: #00ff88;
   --cyber-blue: #00b4d8;
@@ -1779,6 +1793,404 @@ body {
   line-height: 1.6;
   margin-bottom: 20px;
   flex-grow: 1;
+}
+
+/* ==========================================================================
+   Selected SOC Featured Cards & Black Hat Aesthetics
+   ========================================================================== */
+.featured-soc-card {
+  position: relative;
+  background: rgba(6, 12, 26, 0.88);
+  border: 1px solid rgba(0, 242, 254, 0.25);
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+  border-radius: var(--border-radius);
+  transition: transform 0.4s cubic-bezier(0.16, 1, 0.3, 1), border-color 0.3s, box-shadow 0.4s;
+}
+
+.featured-soc-card:hover {
+  transform: translateY(-8px) scale(1.01);
+  border-color: var(--cyber-cyan);
+  box-shadow: 0 20px 45px rgba(0, 0, 0, 0.7), var(--glow-cyan);
+}
+
+.project-cat-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 10px;
+}
+
+.project-status-chip {
+  font-family: var(--font-mono);
+  font-size: 0.68rem;
+  font-weight: 700;
+  color: var(--cyber-green);
+  background: rgba(0, 255, 136, 0.12);
+  border: 1px solid rgba(0, 255, 136, 0.35);
+  padding: 3px 8px;
+  border-radius: 4px;
+  letter-spacing: 0.8px;
+}
+
+.banner-badge-stack {
+  position: absolute;
+  top: 14px;
+  left: 14px;
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  z-index: 2;
+}
+
+.soc-telemetry-pill {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  font-family: var(--font-mono);
+  font-size: 0.7rem;
+  font-weight: 700;
+  padding: 4px 10px;
+  border-radius: 12px;
+  background: rgba(5, 10, 24, 0.85);
+  border: 1px solid var(--border-cyan);
+  color: var(--cyber-cyan);
+  backdrop-filter: blur(8px);
+  letter-spacing: 0.5px;
+}
+
+.soc-telemetry-pill.live-pill {
+  color: var(--cyber-green);
+  border-color: rgba(0, 255, 136, 0.45);
+}
+
+.pulse-dot {
+  width: 7px;
+  height: 7px;
+  border-radius: 50%;
+  background-color: var(--cyber-green);
+  box-shadow: 0 0 8px var(--cyber-green);
+  animation: radarPing 1.8s infinite;
+}
+
+.banner-cyber-icon {
+  font-size: 4.5rem;
+  opacity: 0.85;
+  transition: transform 0.5s ease;
+}
+
+.featured-soc-card:hover .banner-cyber-icon {
+  transform: scale(1.18);
+}
+
+/* Individual banner glow themes */
+.soc-banner-wazuh {
+  background: radial-gradient(circle at center, rgba(0, 255, 136, 0.22) 0%, rgba(5, 12, 28, 0.95) 80%);
+  border-bottom: 1px solid rgba(0, 255, 136, 0.35);
+}
+.soc-banner-wazuh .banner-cyber-icon {
+  color: var(--cyber-green);
+  filter: drop-shadow(0 0 20px rgba(0, 255, 136, 0.6));
+}
+
+.soc-banner-splunk {
+  background: radial-gradient(circle at center, rgba(255, 183, 3, 0.22) 0%, rgba(20, 10, 5, 0.95) 80%);
+  border-bottom: 1px solid rgba(255, 183, 3, 0.35);
+}
+.soc-banner-splunk .banner-cyber-icon {
+  color: #ffb703;
+  filter: drop-shadow(0 0 20px rgba(255, 183, 3, 0.6));
+}
+
+.soc-banner-elk {
+  background: radial-gradient(circle at center, rgba(157, 78, 221, 0.25) 0%, rgba(12, 6, 26, 0.95) 80%);
+  border-bottom: 1px solid rgba(157, 78, 221, 0.35);
+}
+.soc-banner-elk .banner-cyber-icon {
+  color: var(--cyber-purple);
+  filter: drop-shadow(0 0 20px rgba(157, 78, 221, 0.6));
+}
+
+.soc-banner-sniffer {
+  background: radial-gradient(circle at center, rgba(0, 242, 254, 0.22) 0%, rgba(4, 15, 30, 0.95) 80%);
+  border-bottom: 1px solid rgba(0, 242, 254, 0.35);
+}
+.soc-banner-sniffer .banner-cyber-icon {
+  color: var(--cyber-cyan);
+  filter: drop-shadow(0 0 20px rgba(0, 242, 254, 0.6));
+}
+
+/* Metrics Grid inside Project Card */
+.project-metrics-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 10px;
+  margin: 16px 0;
+  padding: 12px;
+  background: rgba(4, 8, 18, 0.7);
+  border: 1px solid rgba(0, 242, 254, 0.15);
+  border-radius: var(--border-radius-sm);
+}
+
+.metric-box {
+  display: flex;
+  flex-direction: column;
+  text-align: center;
+}
+
+.metric-lbl {
+  font-family: var(--font-mono);
+  font-size: 0.68rem;
+  color: var(--text-muted);
+  text-transform: uppercase;
+}
+
+.metric-num {
+  font-family: var(--font-cyber);
+  font-size: 1.05rem;
+  font-weight: 700;
+  color: var(--cyber-cyan);
+  margin-top: 2px;
+}
+
+/* Action buttons inside project card */
+.project-actions-row {
+  display: flex;
+  gap: 12px;
+  margin-top: 18px;
+  flex-wrap: wrap;
+}
+
+.btn-github-action {
+  flex: 1;
+  background: rgba(13, 22, 45, 0.9);
+  color: #fff;
+  border: 1px solid var(--border-cyan);
+  font-size: 0.85rem;
+  padding: 10px 14px;
+}
+
+.btn-github-action:hover {
+  background: rgba(0, 242, 254, 0.2);
+  border-color: var(--cyber-cyan);
+  color: var(--cyber-cyan);
+  box-shadow: var(--glow-cyan-sm);
+}
+
+.btn-telemetry-sim {
+  flex: 1;
+  background: rgba(0, 255, 136, 0.12);
+  color: var(--cyber-green);
+  border: 1px solid rgba(0, 255, 136, 0.4);
+  font-size: 0.85rem;
+  padding: 10px 14px;
+}
+
+.btn-telemetry-sim:hover {
+  background: rgba(0, 255, 136, 0.25);
+  border-color: var(--cyber-green);
+  box-shadow: var(--glow-green);
+}
+
+/* Cyber Telemetry Modal */
+.cyber-modal {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  display: none;
+  align-items: center;
+  justify-content: center;
+  z-index: 100000;
+  padding: 20px;
+}
+
+.cyber-modal.active {
+  display: flex;
+  animation: fadeInModal 0.25s ease-out;
+}
+
+@keyframes fadeInModal {
+  from { opacity: 0; transform: scale(0.97); }
+  to { opacity: 1; transform: scale(1); }
+}
+
+.cyber-modal-overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(2, 5, 12, 0.85);
+  backdrop-filter: blur(10px);
+}
+
+.cyber-modal-dialog {
+  position: relative;
+  width: 100%;
+  max-width: 820px;
+  background: #060c1d;
+  border: 1.5px solid var(--border-cyan-bright);
+  border-radius: var(--border-radius);
+  box-shadow: 0 25px 60px rgba(0, 0, 0, 0.8), var(--glow-cyan);
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+  max-height: 90vh;
+  z-index: 10;
+}
+
+.cyber-modal-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 18px 24px;
+  background: rgba(10, 20, 45, 0.8);
+  border-bottom: 1px solid var(--border-cyan);
+}
+
+.modal-title-wrap {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.modal-status-dot {
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  background: var(--cyber-green);
+  box-shadow: 0 0 10px var(--cyber-green);
+}
+
+.modal-title-wrap h3 {
+  font-family: var(--font-cyber);
+  font-size: 1.1rem;
+  letter-spacing: 0.5px;
+  color: #fff;
+  margin: 0;
+}
+
+.modal-close-btn {
+  background: none;
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  color: var(--text-muted);
+  font-size: 1.1rem;
+  width: 32px;
+  height: 32px;
+  border-radius: 6px;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.2s;
+}
+
+.modal-close-btn:hover {
+  border-color: var(--cyber-red);
+  color: var(--cyber-red);
+  background: rgba(255, 51, 102, 0.15);
+}
+
+.cyber-modal-body {
+  padding: 24px;
+  overflow-y: auto;
+  display: flex;
+  flex-direction: column;
+  gap: 18px;
+}
+
+.modal-telemetry-hud {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 12px;
+}
+
+.modal-telemetry-hud .m-stat {
+  background: rgba(4, 8, 20, 0.7);
+  border: 1px solid rgba(0, 242, 254, 0.2);
+  padding: 10px 14px;
+  border-radius: var(--border-radius-sm);
+  display: flex;
+  flex-direction: column;
+}
+
+.m-lbl {
+  font-family: var(--font-mono);
+  font-size: 0.68rem;
+  color: var(--text-muted);
+}
+
+.m-val {
+  font-family: var(--font-cyber);
+  font-size: 1rem;
+  font-weight: 700;
+  margin-top: 4px;
+}
+
+.text-cyan { color: var(--cyber-cyan); }
+.text-green { color: var(--cyber-green); }
+.text-amber { color: #ffb703; }
+.text-red { color: var(--cyber-red); }
+
+.modal-terminal-screen {
+  background: #020409;
+  border: 1px solid rgba(0, 242, 254, 0.35);
+  border-radius: var(--border-radius-sm);
+  overflow: hidden;
+  box-shadow: inset 0 0 20px rgba(0, 0, 0, 0.8);
+}
+
+.modal-terminal-bar {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 10px 16px;
+  background: rgba(10, 20, 42, 0.9);
+  border-bottom: 1px solid rgba(0, 242, 254, 0.2);
+}
+
+.terminal-bar-title {
+  font-family: var(--font-mono);
+  font-size: 0.75rem;
+  color: var(--cyber-cyan);
+  letter-spacing: 0.5px;
+  margin-left: 8px;
+}
+
+.modal-terminal-output {
+  padding: 18px;
+  max-height: 380px;
+  overflow-y: auto;
+}
+
+.telemetry-log {
+  font-family: var(--font-mono);
+  font-size: 0.82rem;
+  line-height: 1.6;
+  color: #d1d5db;
+  white-space: pre-wrap;
+  margin: 0;
+}
+
+.telemetry-log .log-cyan { color: var(--cyber-cyan); font-weight: 700; }
+.telemetry-log .log-green { color: var(--cyber-green); font-weight: 700; }
+.telemetry-log .log-amber { color: #ffb703; font-weight: 700; }
+.telemetry-log .log-dim { color: #6b7280; }
+
+.cyber-modal-footer {
+  padding: 16px 24px;
+  background: rgba(8, 16, 36, 0.9);
+  border-top: 1px solid var(--border-cyan);
+  display: flex;
+  justify-content: flex-end;
+  gap: 12px;
+}
+
+@media (max-width: 768px) {
+  .modal-telemetry-hud {
+    grid-template-columns: repeat(2, 1fr);
+  }
 }
 
 /* ==========================================================================

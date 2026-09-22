@@ -66,7 +66,7 @@ class CyberTerminal {
   }
 
   autoComplete() {
-    const validCmds = ['help', 'whoami', 'skills', 'experience', 'projects', 'certs', 'contact', 'scan', 'matrix', 'clear', 'theme'];
+    const validCmds = ['help', 'whoami', 'summary', 'skills', 'experience', 'projects', 'wazuh', 'splunk', 'elk', 'sniffer', 'blackhat', 'certs', 'contact', 'scan', 'matrix', 'clear', 'theme'];
     const current = this.input.value.trim().toLowerCase();
     const match = validCmds.find(c => c.startsWith(current));
     if (match) {
@@ -100,9 +100,14 @@ class CyberTerminal {
   <span style="color:var(--cyber-green);">whoami</span>       - Display identity & target role
   <span style="color:var(--cyber-green);">summary</span>      - Read professional background & career goal
   <span style="color:var(--cyber-green);">skills</span>       - List core technical arsenal & SIEM tools
+  <span style="color:var(--cyber-green);">projects</span>     - Inspect 4 Selected SOC Projects & GitHub Repos
+  <span style="color:var(--cyber-green);">wazuh</span>        - Network Threat Detection Lab (Wazuh + Snort + Wireshark)
+  <span style="color:var(--cyber-green);">splunk</span>       - Splunk Enterprise Attack Detection & Dashboards
+  <span style="color:var(--cyber-green);">elk</span>          - Windows Log Analysis & Sigma Rules Lab
+  <span style="color:var(--cyber-green);">sniffer</span>      - Python/Scapy Real-Time Packet Sniffer Tool
+  <span style="color:var(--cyber-green);">blackhat</span>     - Toggle Black Hat Hacker Overdrive Mode
   <span style="color:var(--cyber-green);">experience</span>   - View RedTeam Academy, TryHackMe & HTB details
-  <span style="color:var(--cyber-green);">projects</span>     - Inspect OSINT, Proxmox HomeLab, Phishing Sims
-  <span style="color:var(--cyber-green);">certs</span>        - List CEH, CPT, Deloitte & Tata credentials
+  <span style="color:var(--cyber-green);">certs</span>        - List CEH, CPT & Google Cybersecurity credentials
   <span style="color:var(--cyber-green);">scan</span>         - Run simulated vulnerability & port scan
   <span style="color:var(--cyber-green);">contact</span>      - Display email, LinkedIn & socials
   <span style="color:var(--cyber-green);">matrix</span>       - Toggle Matrix Rain HUD visualizer
@@ -133,11 +138,11 @@ SOC Analyst with hands-on experience in SIEM monitoring, threat detection, incid
       case 'skills':
         this.appendLine(`
 <span style="color:var(--cyber-cyan); font-weight:bold;">CORE TECHNICAL ARSENAL:</span>
-- <span style="color:#fff;">SIEM & EDR:</span> Splunk Enterprise, Microsoft Sentinel, ELK Stack, Microsoft Defender for Endpoint
-- <span style="color:#fff;">Network & Forensics:</span> Wireshark, TCP/IP Analysis, Packet Inspection, Nmap
+- <span style="color:#fff;">SIEM & EDR:</span> Wazuh SIEM, Splunk Enterprise, Microsoft Sentinel, Elastic SIEM, Defender for Endpoint
+- <span style="color:#fff;">Network & Forensics:</span> Snort IDS, Wireshark, TCP/IP Analysis, Packet Inspection, Nmap, tcpdump
 - <span style="color:#fff;">Offensive & PenTesting:</span> Kali Linux, Parrot OS, Burp Suite, Metasploit, Impacket, CrackMapExec, BloodHound
 - <span style="color:#fff;">Vulnerability Assessment:</span> Nessus, VirusTotal Threat Intel
-- <span style="color:#fff;">Scripting & Automation:</span> Python, Bash, PowerShell
+- <span style="color:#fff;">Scripting & Automation:</span> Python (Scapy, Sockets), Bash, PowerShell
         `);
         break;
 
@@ -162,12 +167,76 @@ SOC Analyst with hands-on experience in SIEM monitoring, threat detection, incid
 
       case 'projects':
         this.appendLine(`
-<span style="color:var(--cyber-cyan); font-weight:bold;">HANDS-ON PROJECTS & LABS:</span>
-• <span style="color:var(--cyber-green);">OSINT Reconnaissance:</span> Passive info gathering (SpiderFoot, WHOIS) across 10+ targets.
-• <span style="color:var(--cyber-green);">Home Lab Development:</span> Virtualized Proxmox cybersecurity lab cluster.
-• <span style="color:var(--cyber-green);">Phishing Simulation:</span> MaxPhisher social engineering vectors and defenses.
-• <span style="color:var(--cyber-green);">Linux PenTest Labs:</span> Kali & Parrot OS network scanning and hardening.
+<span style="color:var(--cyber-cyan); font-weight:bold;">SELECTED SOC PROJECTS & LABS:</span>
+
+1. <span style="color:var(--cyber-green); font-weight:bold;">Network Threat Detection Lab (Wazuh + Snort + Wireshark)</span>
+   • Architecture: Ubuntu 22.04, Wazuh SIEM, Snort IDS, Windows Server 2022, Kali Linux, Wireshark.
+   • Telemetry: 642 security alerts triaged, custom Snort rules, DNS C2 & RDP brute force simulations.
+   • GitHub: <a href="https://github.com/Muhammedsinanrp/Network-Threat-Detection-Lab" target="_blank" style="color:var(--cyber-cyan);">github.com/Muhammedsinanrp/Network-Threat-Detection-Lab</a>
+
+2. <span style="color:var(--cyber-green); font-weight:bold;">SOC Home Lab — Splunk SIEM & Attack Detection</span>
+   • Architecture: Kali Linux, Windows Server 2022, Splunk Enterprise, Splunk Universal Forwarder.
+   • Telemetry: SPL detections, brute force dashboards, privilege escalation runbooks.
+   • GitHub: <a href="https://github.com/Muhammedsinanrp/SOC-Home-Lab" target="_blank" style="color:var(--cyber-cyan);">github.com/Muhammedsinanrp/SOC-Home-Lab</a>
+
+3. <span style="color:var(--cyber-green); font-weight:bold;">Enterprise Windows Log Analysis & SOC Threat Investigation Lab</span>
+   • Architecture: Splunk & Elastic SIEM, Sigma rules, Windows Security Event IDs (4624, 4625, 4672).
+   • Telemetry: RDP brute-force detection, MITRE ATT&CK mapping, SPL/KQL/EQL logic.
+   • GitHub: <a href="https://github.com/Muhammedsinanrp/Enterprise-ELK-SIEM" target="_blank" style="color:var(--cyber-cyan);">github.com/Muhammedsinanrp/Enterprise-ELK-SIEM</a>
+
+4. <span style="color:var(--cyber-green); font-weight:bold;">Python Packet Sniffer — Deep Packet Inspection</span>
+   • Architecture: Python 3, Scapy, Raw Sockets, TCP/IP Layer 2-4 analysis.
+   • Telemetry: Real-time traffic stream capture, anomaly detection, port sweep detection.
+   • GitHub: <a href="https://github.com/Muhammedsinanrp/Packet-Sniffer" target="_blank" style="color:var(--cyber-cyan);">github.com/Muhammedsinanrp/Packet-Sniffer</a>
         `);
+        break;
+
+      case 'wazuh':
+      case 'snort':
+        this.appendLine(`
+<span style="color:var(--cyber-cyan); font-weight:bold;">[PROJECT 1: NETWORK THREAT DETECTION LAB]</span>
+Stack: Wazuh SIEM 4.x • Snort 3 IDS • Wireshark • Ubuntu 22.04 • Windows Server 2022
+Generated: <span style="color:var(--cyber-green); font-weight:bold;">642 Security Alerts</span>
+Detections: Nmap recon, RDP brute force, DNS C2 tunneling, custom Snort signatures.
+Repo: <a href="https://github.com/Muhammedsinanrp/Network-Threat-Detection-Lab" target="_blank" style="color:var(--cyber-cyan);">github.com/Muhammedsinanrp/Network-Threat-Detection-Lab</a>
+        `);
+        break;
+
+      case 'splunk':
+        this.appendLine(`
+<span style="color:var(--cyber-cyan); font-weight:bold;">[PROJECT 2: SOC HOME LAB - SPLUNK SIEM]</span>
+Stack: Splunk Enterprise • Splunk Universal Forwarder • Kali Linux • Windows Server 2022
+Detections: Failed logon spikes, brute force, network recon, privilege escalation, IR runbooks.
+Repo: <a href="https://github.com/Muhammedsinanrp/SOC-Home-Lab" target="_blank" style="color:var(--cyber-cyan);">github.com/Muhammedsinanrp/SOC-Home-Lab</a>
+        `);
+        break;
+
+      case 'elk':
+      case 'elastic':
+        this.appendLine(`
+<span style="color:var(--cyber-cyan); font-weight:bold;">[PROJECT 3: ENTERPRISE WINDOWS LOG INVESTIGATION]</span>
+Stack: Elastic SIEM • Splunk • Sigma Rules • Windows Event Logs (4624, 4625, 4672, 4720)
+Detection Logic: SPL / KQL / EQL correlation, RDP brute force triage, MITRE mapping.
+Repo: <a href="https://github.com/Muhammedsinanrp/Enterprise-ELK-SIEM" target="_blank" style="color:var(--cyber-cyan);">github.com/Muhammedsinanrp/Enterprise-ELK-SIEM</a>
+        `);
+        break;
+
+      case 'sniffer':
+      case 'scapy':
+        this.appendLine(`
+<span style="color:var(--cyber-cyan); font-weight:bold;">[PROJECT 4: PYTHON PACKET SNIFFER]</span>
+Stack: Python 3 • Scapy • Raw Sockets • TCP/IP Layer 2-4
+Features: Real-time PCAP stream, anomaly flagging, header inspection, suspicious connection alerting.
+Repo: <a href="https://github.com/Muhammedsinanrp/Packet-Sniffer" target="_blank" style="color:var(--cyber-cyan);">github.com/Muhammedsinanrp/Packet-Sniffer</a>
+        `);
+        break;
+
+      case 'blackhat':
+      case 'hacker':
+        document.body.classList.toggle('theme-blackhat');
+        const isBlackhat = document.body.classList.contains('theme-blackhat');
+        this.appendLine(`Black Hat Hacker Visual Overdrive: <span style="color:var(--cyber-green); font-weight:bold;">${isBlackhat ? 'ENGAGED' : 'STANDARD'}</span>`);
+        if (window.cyberSound) window.cyberSound.playAccessGranted();
         break;
 
       case 'certs':
@@ -176,9 +245,8 @@ SOC Analyst with hands-on experience in SIEM monitoring, threat detection, incid
 <span style="color:var(--cyber-cyan); font-weight:bold;">CERTIFICATIONS & CREDENTIALS:</span>
 1. <span style="color:var(--cyber-green); font-weight:bold;">Certified Ethical Hacker (CEH)</span> - EC-Council
 2. <span style="color:var(--cyber-green); font-weight:bold;">Certified Penetration Tester (CPT)</span> - Red Team Hacker Academy
-3. <span style="color:var(--cyber-green); font-weight:bold;">Deloitte Australia</span> - Cyber Job Simulation
-4. <span style="color:var(--cyber-green); font-weight:bold;">Tata</span> - Cybersecurity Analyst Job Simulation
-5. <span style="color:var(--cyber-green); font-weight:bold;">Bachelor's Degree</span> - University of Calicut (2022 - 2025)
+3. <span style="color:var(--cyber-green); font-weight:bold;">Google Cybersecurity Professional Certificate</span> - Coursera (Aug 2026)
+4. <span style="color:var(--cyber-green); font-weight:bold;">Bachelor's Degree</span> - University of Calicut (2022 - 2025)
         `);
         break;
 

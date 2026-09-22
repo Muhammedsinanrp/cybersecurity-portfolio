@@ -811,95 +811,235 @@
       </div>
     </section>
 
-    <!-- ==========================================================================
-         Hands-on Projects & Training Labs
-         ========================================================================== -->
+    <!-- =========================================================================          Hands-on Projects & Training Labs
+          ========================================================================== -->
     <section class="section" id="projects">
       <div class="container">
         <div class="section-header">
-          <div class="section-tag"><i class="fas fa-laptop-code"></i> Engineering & Research</div>
-          <h2 class="section-title">Hands-On Projects & Labs</h2>
-          <p class="section-subtitle">Practical security systems, simulated adversary environments, and home lab architectures.</p>
+          <div class="section-tag"><i class="fas fa-shield-halved"></i> Selected SOC Projects</div>
+          <h2 class="section-title">Selected SOC & Threat Detection Labs</h2>
+          <p class="section-subtitle">Enterprise-grade SIEM deployments, intrusion detection architectures, adversary simulations, and real-time telemetry pipelines.</p>
         </div>
 
         <div class="projects-grid">
           
-          <!-- Project 1: OSINT -->
-          <div class="project-card">
-            <div class="project-banner">
-              <i class="fas fa-magnifying-glass-chart"></i>
+          <!-- Project 1: Network Threat Detection Lab (Wazuh + Snort + Wireshark) -->
+          <div class="project-card featured-soc-card" data-category="siem">
+            <div class="project-card-cyber-border"></div>
+            <div class="project-banner soc-banner-wazuh">
+              <div class="banner-badge-stack">
+                <span class="soc-telemetry-pill live-pill"><span class="pulse-dot"></span> 642 ALERTS TRIAGED</span>
+                <span class="soc-telemetry-pill">MITRE ATT&CK</span>
+              </div>
+              <i class="fas fa-shield-virus banner-cyber-icon"></i>
             </div>
             <div class="project-content">
-              <span class="project-category">Intelligence Gathering</span>
-              <h3 class="project-title">OSINT Reconnaissance Framework</h3>
+              <div class="project-cat-row">
+                <span class="project-category"><i class="fas fa-satellite-dish"></i> SIEM & IDS Architecture</span>
+                <span class="project-status-chip">ENTERPRISE LAB</span>
+              </div>
+              <h3 class="project-title">Network Threat Detection Lab — Wazuh SIEM + Snort IDS + Wireshark</h3>
               <p class="project-desc">
-                Conducted passive intelligence gathering labs using SpiderFoot and WHOIS-based domain reconnaissance across 10+ simulated organizational targets, aggregating threat footprints and leaked asset registers.
+                Built an isolated enterprise-style SOC lab using <strong>Ubuntu 22.04, Wazuh SIEM, Snort IDS, Windows Server 2022, Kali Linux, Wireshark/tcpdump, and VMware</strong>. Simulated Nmap reconnaissance, RDP credential brute force, and DNS C2 tunneling; generated <strong>642 security alerts</strong>, created custom Snort rules, correlated host and network telemetry, investigated PCAPs, and mapped detections to MITRE ATT&CK.
               </p>
+              
+              <div class="project-metrics-grid">
+                <div class="metric-box">
+                  <span class="metric-lbl">Alerts Generated</span>
+                  <span class="metric-num">642</span>
+                </div>
+                <div class="metric-box">
+                  <span class="metric-lbl">IDS Engine</span>
+                  <span class="metric-num">Snort 3</span>
+                </div>
+                <div class="metric-box">
+                  <span class="metric-lbl">SIEM Core</span>
+                  <span class="metric-num">Wazuh 4.x</span>
+                </div>
+              </div>
+
               <div class="skill-tags-flex">
-                <span class="skill-pill">SpiderFoot</span>
-                <span class="skill-pill">WHOIS</span>
-                <span class="skill-pill">Recon-ng</span>
-                <span class="skill-pill">DNS Mining</span>
+                <span class="skill-pill">Wazuh SIEM</span>
+                <span class="skill-pill">Snort IDS</span>
+                <span class="skill-pill">Wireshark</span>
+                <span class="skill-pill">Ubuntu 22.04</span>
+                <span class="skill-pill">Windows Server 2022</span>
+                <span class="skill-pill">PCAP Forensics</span>
+                <span class="skill-pill">DNS C2 Tunneling</span>
+              </div>
+
+              <div class="project-actions-row">
+                <a href="https://github.com/Muhammedsinanrp/Network-Threat-Detection-Lab" target="_blank" rel="noopener noreferrer" class="btn btn-github-action">
+                  <i class="fab fa-github"></i> View GitHub Repo
+                </a>
+                <button class="btn btn-telemetry-sim" onclick="window.runProjectTelemetrySim('wazuh')">
+                  <i class="fas fa-terminal"></i> Simulate Telemetry
+                </button>
               </div>
             </div>
           </div>
 
-          <!-- Project 2: Proxmox Home Lab -->
-          <div class="project-card">
-            <div class="project-banner" style="background: linear-gradient(135deg, rgba(0, 255, 136, 0.15), rgba(0, 242, 254, 0.15));">
-              <i class="fas fa-server" style="color: var(--cyber-green);"></i>
+          <!-- Project 2: SOC Home Lab (Splunk SIEM & Attack Detection) -->
+          <div class="project-card featured-soc-card" data-category="siem">
+            <div class="project-card-cyber-border"></div>
+            <div class="project-banner soc-banner-splunk">
+              <div class="banner-badge-stack">
+                <span class="soc-telemetry-pill live-pill"><span class="pulse-dot"></span> LIVE FORWARDING</span>
+                <span class="soc-telemetry-pill">SPL DETECTIONS</span>
+              </div>
+              <i class="fas fa-chart-line banner-cyber-icon"></i>
             </div>
             <div class="project-content">
-              <span class="project-category">Infrastructure & Virtualization</span>
-              <h3 class="project-title">Proxmox Cybersecurity Home Lab</h3>
+              <div class="project-cat-row">
+                <span class="project-category"><i class="fas fa-server"></i> SIEM & Detection Engineering</span>
+                <span class="project-status-chip">SOC SIMULATION</span>
+              </div>
+              <h3 class="project-title">SOC Home Lab — Splunk SIEM & Attack Detection</h3>
               <p class="project-desc">
-                Architected and deployed a dedicated multi-node cybersecurity home lab utilizing Proxmox VE. Configured segmented VLANs, Active Directory domain controllers, pfSense firewalls, and logging endpoints for continuous malware testing and SIEM ingestion.
+                Built a comprehensive SOC lab using <strong>Kali Linux, Windows Server 2022, Splunk Enterprise, and Splunk Universal Forwarder</strong>. Implemented SPL detections and dashboards for failed logons, brute force, network reconnaissance, and privilege escalation; authored detailed incident-response runbooks and adversary attack simulations.
               </p>
+
+              <div class="project-metrics-grid">
+                <div class="metric-box">
+                  <span class="metric-lbl">SIEM Platform</span>
+                  <span class="metric-num">Splunk</span>
+                </div>
+                <div class="metric-box">
+                  <span class="metric-lbl">Forwarder</span>
+                  <span class="metric-num">Universal</span>
+                </div>
+                <div class="metric-box">
+                  <span class="metric-lbl">Coverage</span>
+                  <span class="metric-num">AD & Network</span>
+                </div>
+              </div>
+
               <div class="skill-tags-flex">
-                <span class="skill-pill">Proxmox VE</span>
-                <span class="skill-pill">Active Directory</span>
-                <span class="skill-pill">pfSense</span>
-                <span class="skill-pill">VLAN Segmentation</span>
+                <span class="skill-pill">Splunk Enterprise</span>
+                <span class="skill-pill">Universal Forwarder</span>
+                <span class="skill-pill">SPL Queries</span>
+                <span class="skill-pill">Brute-Force Detection</span>
+                <span class="skill-pill">Privilege Escalation</span>
+                <span class="skill-pill">Incident Runbooks</span>
+              </div>
+
+              <div class="project-actions-row">
+                <a href="https://github.com/Muhammedsinanrp/SOC-Home-Lab" target="_blank" rel="noopener noreferrer" class="btn btn-github-action">
+                  <i class="fab fa-github"></i> View GitHub Repo
+                </a>
+                <button class="btn btn-telemetry-sim" onclick="window.runProjectTelemetrySim('splunk')">
+                  <i class="fas fa-terminal"></i> Simulate Telemetry
+                </button>
               </div>
             </div>
           </div>
 
-          <!-- Project 3: Phishing Simulation -->
-          <div class="project-card">
-            <div class="project-banner" style="background: linear-gradient(135deg, rgba(255, 51, 102, 0.15), rgba(157, 78, 221, 0.15));">
-              <i class="fas fa-envelope-open-text" style="color: var(--cyber-red);"></i>
+          <!-- Project 3: Enterprise Windows Log Analysis & SOC Threat Investigation Lab -->
+          <div class="project-card featured-soc-card" data-category="siem">
+            <div class="project-card-cyber-border"></div>
+            <div class="project-banner soc-banner-elk">
+              <div class="banner-badge-stack">
+                <span class="soc-telemetry-pill live-pill"><span class="pulse-dot"></span> SIGMA RULES</span>
+                <span class="soc-telemetry-pill">KQL / EQL</span>
+              </div>
+              <i class="fas fa-cubes banner-cyber-icon"></i>
             </div>
             <div class="project-content">
-              <span class="project-category">Social Engineering & Defense</span>
-              <h3 class="project-title">Phishing Simulation & Awareness</h3>
+              <div class="project-cat-row">
+                <span class="project-category"><i class="fas fa-bug"></i> Windows Threat Forensics</span>
+                <span class="project-status-chip">MULTI-SIEM</span>
+              </div>
+              <h3 class="project-title">Enterprise Windows Log Analysis & SOC Threat Investigation Lab</h3>
               <p class="project-desc">
-                Executed social engineering awareness setups using MaxPhisher in controlled environments. Analyzed credential capture methods and formulated user defense strategies and mail security policies.
+                Implemented an end-to-end Windows log investigation workflow across <strong>Splunk and Elastic SIEM</strong>, including RDP brute-force detection, Windows Event ID analysis (4624, 4625, 4672, 4720), MITRE ATT&CK mapping, SPL/KQL/EQL detection logic, and custom Sigma rules for cross-platform threat hunting.
               </p>
+
+              <div class="project-metrics-grid">
+                <div class="metric-box">
+                  <span class="metric-lbl">Event IDs</span>
+                  <span class="metric-num">Security Log</span>
+                </div>
+                <div class="metric-box">
+                  <span class="metric-lbl">Rule Standards</span>
+                  <span class="metric-num">Sigma</span>
+                </div>
+                <div class="metric-box">
+                  <span class="metric-lbl">SIEM Query</span>
+                  <span class="metric-num">KQL + SPL</span>
+                </div>
+              </div>
+
               <div class="skill-tags-flex">
-                <span class="skill-pill">MaxPhisher</span>
-                <span class="skill-pill">Email Security</span>
-                <span class="skill-pill">SPF/DKIM/DMARC</span>
-                <span class="skill-pill">Defense Posture</span>
+                <span class="skill-pill">Elastic SIEM</span>
+                <span class="skill-pill">Splunk</span>
+                <span class="skill-pill">Sigma Rules</span>
+                <span class="skill-pill">Windows Event IDs</span>
+                <span class="skill-pill">RDP Brute Force</span>
+                <span class="skill-pill">EQL Queries</span>
+              </div>
+
+              <div class="project-actions-row">
+                <a href="https://github.com/Muhammedsinanrp/Enterprise-ELK-SIEM" target="_blank" rel="noopener noreferrer" class="btn btn-github-action">
+                  <i class="fab fa-github"></i> View GitHub Repo
+                </a>
+                <button class="btn btn-telemetry-sim" onclick="window.runProjectTelemetrySim('elk')">
+                  <i class="fas fa-terminal"></i> Simulate Telemetry
+                </button>
               </div>
             </div>
           </div>
 
-          <!-- Project 4: Linux Pentest Environment -->
-          <div class="project-card">
-            <div class="project-banner" style="background: linear-gradient(135deg, rgba(157, 78, 221, 0.15), rgba(79, 172, 254, 0.15));">
-              <i class="fab fa-ubuntu" style="color: var(--cyber-purple);"></i>
+          <!-- Project 4: Python Packet Sniffer -->
+          <div class="project-card featured-soc-card" data-category="scripting">
+            <div class="project-card-cyber-border"></div>
+            <div class="project-banner soc-banner-sniffer">
+              <div class="banner-badge-stack">
+                <span class="soc-telemetry-pill live-pill"><span class="pulse-dot"></span> REAL-TIME DPI</span>
+                <span class="soc-telemetry-pill">RAW SOCKETS</span>
+              </div>
+              <i class="fab fa-python banner-cyber-icon"></i>
             </div>
             <div class="project-content">
-              <span class="project-category">Offensive Environment</span>
-              <h3 class="project-title">Linux Hardening & PenTest Setup</h3>
+              <div class="project-cat-row">
+                <span class="project-category"><i class="fas fa-network-wired"></i> Network Security & Tooling</span>
+                <span class="project-status-chip">CORE PYTHON</span>
+              </div>
+              <h3 class="project-title">Python Packet Sniffer — Deep Packet Inspection</h3>
               <p class="project-desc">
-                Configured and hardened custom Kali Linux and Parrot Security OS setups for security assessments, including automated network scanning scripts, kernel audit rules, and vulnerability identification suites.
+                Developed a robust network packet capture and analysis tool using <strong>Python and Scapy</strong> to parse TCP/IP traffic in real time and flag suspicious connections, abnormal packet headers, port sweep signatures, and unusual protocol behavior across internal subnets.
               </p>
+
+              <div class="project-metrics-grid">
+                <div class="metric-box">
+                  <span class="metric-lbl">Language</span>
+                  <span class="metric-num">Python 3</span>
+                </div>
+                <div class="metric-box">
+                  <span class="metric-lbl">Framework</span>
+                  <span class="metric-num">Scapy</span>
+                </div>
+                <div class="metric-box">
+                  <span class="metric-lbl">Inspection</span>
+                  <span class="metric-num">Layer 2-4</span>
+                </div>
+              </div>
+
               <div class="skill-tags-flex">
-                <span class="skill-pill">Kali Linux</span>
-                <span class="skill-pill">Parrot OS</span>
-                <span class="skill-pill">Hardening</span>
-                <span class="skill-pill">Bash Automation</span>
+                <span class="skill-pill">Python 3</span>
+                <span class="skill-pill">Scapy</span>
+                <span class="skill-pill">TCP/IP Stack</span>
+                <span class="skill-pill">Raw Sockets</span>
+                <span class="skill-pill">Port Scan Mitigate</span>
+                <span class="skill-pill">Anomaly Flagging</span>
+              </div>
+
+              <div class="project-actions-row">
+                <a href="https://github.com/Muhammedsinanrp/Packet-Sniffer" target="_blank" rel="noopener noreferrer" class="btn btn-github-action">
+                  <i class="fab fa-github"></i> View GitHub Repo
+                </a>
+                <button class="btn btn-telemetry-sim" onclick="window.runProjectTelemetrySim('sniffer')">
+                  <i class="fas fa-terminal"></i> Simulate Telemetry
+                </button>
               </div>
             </div>
           </div>
@@ -907,6 +1047,42 @@
         </div>
       </div>
     </section>
+
+    <!-- ==========================================================================
+         SOC Project Telemetry Modal
+         ========================================================================== -->
+    <div id="project-telemetry-modal" class="cyber-modal">
+      <div class="cyber-modal-overlay" onclick="window.closeTelemetryModal()"></div>
+      <div class="cyber-modal-dialog">
+        <div class="cyber-modal-header">
+          <div class="modal-title-wrap">
+            <span class="modal-status-dot"></span>
+            <h3 id="modal-project-title">SOC LAB TELEMETRY FEED</h3>
+          </div>
+          <button class="modal-close-btn" onclick="window.closeTelemetryModal()" aria-label="Close modal">
+            <i class="fas fa-times"></i>
+          </button>
+        </div>
+        <div class="cyber-modal-body">
+          <div class="modal-telemetry-hud" id="modal-hud-stats"></div>
+          <div class="modal-terminal-screen">
+            <div class="modal-terminal-bar">
+              <span class="terminal-dot red"></span>
+              <span class="terminal-dot yellow"></span>
+              <span class="terminal-dot green"></span>
+              <span class="terminal-bar-title" id="modal-terminal-title">LIVE PACKET & SIEM TELEMETRY STREAM</span>
+            </div>
+            <div class="modal-terminal-output" id="modal-terminal-output"></div>
+          </div>
+        </div>
+        <div class="cyber-modal-footer">
+          <a id="modal-github-link" href="#" target="_blank" rel="noopener noreferrer" class="btn btn-primary btn-sm">
+            <i class="fab fa-github"></i> Open Project on GitHub
+          </a>
+          <button class="btn btn-secondary btn-sm" onclick="window.closeTelemetryModal()">Close Console</button>
+        </div>
+      </div>
+    </div>
 
     <!-- ==========================================================================
          Certifications & Credentials
@@ -947,29 +1123,16 @@
             </p>
           </div>
 
-          <!-- Cert 3: Deloitte Australia -->
+          <!-- Cert 3: Google Cybersecurity Professional Certificate -->
           <div class="cert-card">
             <span class="cert-badge-number">#03</span>
-            <div class="cert-icon-wrapper" style="color: #4facfe; border-color: #4facfe;">
-              <i class="fas fa-building-shield"></i>
+            <div class="cert-icon-wrapper" style="color: #4285F4; border-color: #4285F4; background: rgba(66, 133, 244, 0.1);">
+              <i class="fab fa-google"></i>
             </div>
-            <h3 class="cert-title">Deloitte Australia</h3>
-            <div class="cert-issuer">Cyber Job Simulation</div>
+            <h3 class="cert-title">Google Cybersecurity Professional Certificate</h3>
+            <div class="cert-issuer">Coursera | Aug 2026</div>
             <p class="cert-desc">
-              Practical cyber job simulation focusing on real-world enterprise security operations, risk analysis, and corporate security program governance.
-            </p>
-          </div>
-
-          <!-- Cert 4: Tata -->
-          <div class="cert-card">
-            <span class="cert-badge-number">#04</span>
-            <div class="cert-icon-wrapper" style="color: var(--cyber-purple); border-color: var(--cyber-purple);">
-              <i class="fas fa-magnifying-glass-shield"></i>
-            </div>
-            <h3 class="cert-title">Tata Cyber Simulation</h3>
-            <div class="cert-issuer">Cybersecurity Analyst Program</div>
-            <p class="cert-desc">
-              Applied security concepts, incident investigation scenarios, security advisory authoring, and threat intelligence synthesis.
+              Rigorous professional certification program by Google covering SIEM log analysis, network architecture & packet inspection, Python automation, Linux command line, SQL querying, and incident detection & response.
             </p>
           </div>
 
