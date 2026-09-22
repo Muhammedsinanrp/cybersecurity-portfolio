@@ -817,9 +817,9 @@
     <section class="section" id="projects">
       <div class="container">
         <div class="section-header">
-          <div class="section-tag"><i class="fas fa-shield-halved"></i> Selected SOC Projects</div>
-          <h2 class="section-title">Selected SOC & Threat Detection Labs</h2>
-          <p class="section-subtitle">Enterprise-grade SIEM deployments, intrusion detection architectures, adversary simulations, and real-time telemetry pipelines.</p>
+          <div class="section-tag"><i class="fas fa-shield-halved"></i> Security Operations & Threat Labs</div>
+          <h2 class="section-title">Selected SOC, Threat Detection & Infrastructure Labs</h2>
+          <p class="section-subtitle">Enterprise-grade SIEM deployments, intrusion detection architectures, OSINT intelligence, Proxmox virtualization, phishing defense, and hardened security operations.</p>
         </div>
 
         <div class="projects-grid">
@@ -1039,6 +1039,226 @@
                   <i class="fab fa-github"></i> View GitHub Repo
                 </a>
                 <button class="btn btn-telemetry-sim" onclick="window.runProjectTelemetrySim('sniffer')">
+                  <i class="fas fa-terminal"></i> Simulate Telemetry
+                </button>
+              </div>
+            </div>
+          </div>
+
+          <!-- Project 5: OSINT Reconnaissance Framework -->
+          <div class="project-card featured-soc-card" data-category="osint">
+            <div class="project-card-cyber-border"></div>
+            <div class="project-banner soc-banner-osint">
+              <div class="banner-badge-stack">
+                <span class="soc-telemetry-pill live-pill"><span class="pulse-dot"></span> 10+ TARGETS</span>
+                <span class="soc-telemetry-pill">PASSIVE INTEL</span>
+              </div>
+              <i class="fas fa-globe-americas banner-cyber-icon"></i>
+            </div>
+            <div class="project-content">
+              <div class="project-cat-row">
+                <span class="project-category"><i class="fas fa-search-location"></i> Intelligence Gathering</span>
+                <span class="project-status-chip">OSINT LAB</span>
+              </div>
+              <h3 class="project-title">OSINT Reconnaissance Framework</h3>
+              <p class="project-desc">
+                Conducted passive intelligence gathering labs using <strong>SpiderFoot and WHOIS-based domain reconnaissance</strong> across <strong>10+ simulated organizational targets</strong>, aggregating threat footprints and leaked asset registers.
+              </p>
+
+              <div class="project-metrics-grid">
+                <div class="metric-box">
+                  <span class="metric-lbl">Targets Scope</span>
+                  <span class="metric-num">10+ Orgs</span>
+                </div>
+                <div class="metric-box">
+                  <span class="metric-lbl">Core Tool</span>
+                  <span class="metric-num">SpiderFoot</span>
+                </div>
+                <div class="metric-box">
+                  <span class="metric-lbl">Recon Mode</span>
+                  <span class="metric-num">Passive OSINT</span>
+                </div>
+              </div>
+
+              <div class="skill-tags-flex">
+                <span class="skill-pill">SpiderFoot</span>
+                <span class="skill-pill">WHOIS</span>
+                <span class="skill-pill">Recon-ng</span>
+                <span class="skill-pill">DNS Mining</span>
+                <span class="skill-pill">Threat Footprinting</span>
+                <span class="skill-pill">Asset Registers</span>
+              </div>
+
+              <div class="project-actions-row">
+                <a href="https://github.com/Muhammedsinanrp/OSINT-Recon-Framework" target="_blank" rel="noopener noreferrer" class="btn btn-github-action">
+                  <i class="fab fa-github"></i> View GitHub Repo
+                </a>
+                <button class="btn btn-telemetry-sim" onclick="window.runProjectTelemetrySim('osint')">
+                  <i class="fas fa-terminal"></i> Simulate Telemetry
+                </button>
+              </div>
+            </div>
+          </div>
+
+          <!-- Project 6: Proxmox Cybersecurity Home Lab -->
+          <div class="project-card featured-soc-card" data-category="infrastructure">
+            <div class="project-card-cyber-border"></div>
+            <div class="project-banner soc-banner-proxmox">
+              <div class="banner-badge-stack">
+                <span class="soc-telemetry-pill live-pill"><span class="pulse-dot"></span> CLUSTER LAB</span>
+                <span class="soc-telemetry-pill">SEGMENTED VLANS</span>
+              </div>
+              <i class="fas fa-server banner-cyber-icon"></i>
+            </div>
+            <div class="project-content">
+              <div class="project-cat-row">
+                <span class="project-category"><i class="fas fa-layer-group"></i> Infrastructure & Virtualization</span>
+                <span class="project-status-chip">ENTERPRISE LAB</span>
+              </div>
+              <h3 class="project-title">Proxmox Cybersecurity Home Lab</h3>
+              <p class="project-desc">
+                Architected and deployed a dedicated multi-node cybersecurity home lab utilizing <strong>Proxmox VE</strong>. Configured <strong>segmented VLANs, Active Directory domain controllers, pfSense firewalls</strong>, and logging endpoints for continuous malware testing and SIEM ingestion.
+              </p>
+
+              <div class="project-metrics-grid">
+                <div class="metric-box">
+                  <span class="metric-lbl">Hypervisor</span>
+                  <span class="metric-num">Proxmox VE</span>
+                </div>
+                <div class="metric-box">
+                  <span class="metric-lbl">Firewall</span>
+                  <span class="metric-num">pfSense</span>
+                </div>
+                <div class="metric-box">
+                  <span class="metric-lbl">Architecture</span>
+                  <span class="metric-num">VLANs & AD</span>
+                </div>
+              </div>
+
+              <div class="skill-tags-flex">
+                <span class="skill-pill">Proxmox VE</span>
+                <span class="skill-pill">Active Directory</span>
+                <span class="skill-pill">pfSense</span>
+                <span class="skill-pill">VLAN Segmentation</span>
+                <span class="skill-pill">Malware Testing</span>
+                <span class="skill-pill">SIEM Ingestion</span>
+              </div>
+
+              <div class="project-actions-row">
+                <a href="https://github.com/Muhammedsinanrp/Proxmox-Cybersecurity-Lab" target="_blank" rel="noopener noreferrer" class="btn btn-github-action">
+                  <i class="fab fa-github"></i> View GitHub Repo
+                </a>
+                <button class="btn btn-telemetry-sim" onclick="window.runProjectTelemetrySim('proxmox')">
+                  <i class="fas fa-terminal"></i> Simulate Telemetry
+                </button>
+              </div>
+            </div>
+          </div>
+
+          <!-- Project 7: Phishing Simulation & Awareness -->
+          <div class="project-card featured-soc-card" data-category="defense">
+            <div class="project-card-cyber-border"></div>
+            <div class="project-banner soc-banner-phishing">
+              <div class="banner-badge-stack">
+                <span class="soc-telemetry-pill live-pill"><span class="pulse-dot"></span> CONTROLLED SIM</span>
+                <span class="soc-telemetry-pill">EMAIL HYGIENE</span>
+              </div>
+              <i class="fas fa-envelope-open-text banner-cyber-icon"></i>
+            </div>
+            <div class="project-content">
+              <div class="project-cat-row">
+                <span class="project-category"><i class="fas fa-user-shield"></i> Social Engineering & Defense</span>
+                <span class="project-status-chip">SECURITY POSTURE</span>
+              </div>
+              <h3 class="project-title">Phishing Simulation & Awareness</h3>
+              <p class="project-desc">
+                Executed social engineering awareness setups using <strong>MaxPhisher</strong> in controlled environments. Analyzed credential capture methods and formulated <strong>user defense strategies, mail security policies, and SPF/DKIM/DMARC hygiene</strong>.
+              </p>
+
+              <div class="project-metrics-grid">
+                <div class="metric-box">
+                  <span class="metric-lbl">Simulator</span>
+                  <span class="metric-num">MaxPhisher</span>
+                </div>
+                <div class="metric-box">
+                  <span class="metric-lbl">Mail Security</span>
+                  <span class="metric-num">SPF/DKIM/DMARC</span>
+                </div>
+                <div class="metric-box">
+                  <span class="metric-lbl">Objective</span>
+                  <span class="metric-num">Defense Posture</span>
+                </div>
+              </div>
+
+              <div class="skill-tags-flex">
+                <span class="skill-pill">MaxPhisher</span>
+                <span class="skill-pill">Email Security</span>
+                <span class="skill-pill">SPF/DKIM/DMARC</span>
+                <span class="skill-pill">Defense Posture</span>
+                <span class="skill-pill">Credential Capture</span>
+                <span class="skill-pill">User Awareness</span>
+              </div>
+
+              <div class="project-actions-row">
+                <a href="https://github.com/Muhammedsinanrp/Phishing-Simulation-Defense" target="_blank" rel="noopener noreferrer" class="btn btn-github-action">
+                  <i class="fab fa-github"></i> View GitHub Repo
+                </a>
+                <button class="btn btn-telemetry-sim" onclick="window.runProjectTelemetrySim('phishing')">
+                  <i class="fas fa-terminal"></i> Simulate Telemetry
+                </button>
+              </div>
+            </div>
+          </div>
+
+          <!-- Project 8: Linux Hardening & PenTest Setup -->
+          <div class="project-card featured-soc-card" data-category="offensive">
+            <div class="project-card-cyber-border"></div>
+            <div class="project-banner soc-banner-hardening">
+              <div class="banner-badge-stack">
+                <span class="soc-telemetry-pill live-pill"><span class="pulse-dot"></span> HARDENED KERNEL</span>
+                <span class="soc-telemetry-pill">BASH AUTOMATION</span>
+              </div>
+              <i class="fab fa-linux banner-cyber-icon"></i>
+            </div>
+            <div class="project-content">
+              <div class="project-cat-row">
+                <span class="project-category"><i class="fas fa-terminal"></i> Offensive Environment</span>
+                <span class="project-status-chip">SECURITY OPS</span>
+              </div>
+              <h3 class="project-title">Linux Hardening & PenTest Setup</h3>
+              <p class="project-desc">
+                Configured and hardened custom <strong>Kali Linux and Parrot Security OS</strong> setups for security assessments, including <strong>automated network scanning scripts, kernel audit rules</strong>, and vulnerability identification suites.
+              </p>
+
+              <div class="project-metrics-grid">
+                <div class="metric-box">
+                  <span class="metric-lbl">Environments</span>
+                  <span class="metric-num">Kali & Parrot</span>
+                </div>
+                <div class="metric-box">
+                  <span class="metric-lbl">Kernel Audit</span>
+                  <span class="metric-num">auditd Rules</span>
+                </div>
+                <div class="metric-box">
+                  <span class="metric-lbl">Scripting</span>
+                  <span class="metric-num">Bash Automation</span>
+                </div>
+              </div>
+
+              <div class="skill-tags-flex">
+                <span class="skill-pill">Kali Linux</span>
+                <span class="skill-pill">Parrot OS</span>
+                <span class="skill-pill">Hardening</span>
+                <span class="skill-pill">Bash Automation</span>
+                <span class="skill-pill">Kernel Audit</span>
+                <span class="skill-pill">Vuln Scanning</span>
+              </div>
+
+              <div class="project-actions-row">
+                <a href="https://github.com/Muhammedsinanrp/Linux-Hardening-PenTest" target="_blank" rel="noopener noreferrer" class="btn btn-github-action">
+                  <i class="fab fa-github"></i> View GitHub Repo
+                </a>
+                <button class="btn btn-telemetry-sim" onclick="window.runProjectTelemetrySim('hardening')">
                   <i class="fas fa-terminal"></i> Simulate Telemetry
                 </button>
               </div>

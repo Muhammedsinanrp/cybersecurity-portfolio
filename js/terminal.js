@@ -66,7 +66,7 @@ class CyberTerminal {
   }
 
   autoComplete() {
-    const validCmds = ['help', 'whoami', 'summary', 'skills', 'experience', 'projects', 'wazuh', 'splunk', 'elk', 'sniffer', 'blackhat', 'certs', 'contact', 'scan', 'matrix', 'clear', 'theme'];
+    const validCmds = ['help', 'whoami', 'summary', 'skills', 'experience', 'projects', 'wazuh', 'splunk', 'elk', 'sniffer', 'osint', 'proxmox', 'phishing', 'hardening', 'blackhat', 'certs', 'contact', 'scan', 'matrix', 'clear', 'theme'];
     const current = this.input.value.trim().toLowerCase();
     const match = validCmds.find(c => c.startsWith(current));
     if (match) {
@@ -100,12 +100,16 @@ class CyberTerminal {
   <span style="color:var(--cyber-green);">whoami</span>       - Display identity & target role
   <span style="color:var(--cyber-green);">summary</span>      - Read professional background & career goal
   <span style="color:var(--cyber-green);">skills</span>       - List core technical arsenal & SIEM tools
-  <span style="color:var(--cyber-green);">projects</span>     - Inspect 4 Selected SOC Projects & GitHub Repos
+  <span style="color:var(--cyber-green);">projects</span>     - Inspect all 8 Security & SOC Projects
   <span style="color:var(--cyber-green);">tester</span>       - Launch Interactive SOC Project Playground
   <span style="color:var(--cyber-green);">wazuh</span>        - Network Threat Detection Lab (Wazuh + Snort + Wireshark)
   <span style="color:var(--cyber-green);">splunk</span>       - Splunk Enterprise Attack Detection & Dashboards
   <span style="color:var(--cyber-green);">elk</span>          - Windows Log Analysis & Sigma Rules Lab
   <span style="color:var(--cyber-green);">sniffer</span>      - Python/Scapy Real-Time Packet Sniffer Tool
+  <span style="color:var(--cyber-green);">osint</span>        - SpiderFoot & WHOIS Intelligence Gathering Lab
+  <span style="color:var(--cyber-green);">proxmox</span>      - Proxmox VE Multi-Node Cybersecurity Home Lab
+  <span style="color:var(--cyber-green);">phishing</span>     - MaxPhisher Social Engineering Simulation & Email Hygiene
+  <span style="color:var(--cyber-green);">hardening</span>    - Kali & Parrot Linux Hardening & PenTest Setup
   <span style="color:var(--cyber-green);">blackhat</span>     - Toggle Black Hat Hacker Overdrive Mode
   <span style="color:var(--cyber-green);">experience</span>   - View RedTeam Academy, TryHackMe & HTB details
   <span style="color:var(--cyber-green);">certs</span>        - List CEH, CPT & Google Cybersecurity credentials
@@ -189,6 +193,24 @@ SOC Analyst with hands-on experience in SIEM monitoring, threat detection, incid
    • Architecture: Python 3, Scapy, Raw Sockets, TCP/IP Layer 2-4 analysis.
    • Telemetry: Real-time traffic stream capture, anomaly detection, port sweep detection.
    • GitHub: <a href="https://github.com/Muhammedsinanrp/Packet-Sniffer" target="_blank" style="color:var(--cyber-cyan);">github.com/Muhammedsinanrp/Packet-Sniffer</a>
+
+<span style="color:var(--cyber-cyan); font-weight:bold;">INTELLIGENCE, INFRASTRUCTURE & OFFENSIVE LABS:</span>
+
+5. <span style="color:var(--cyber-green); font-weight:bold;">OSINT Reconnaissance Framework</span>
+   • Focus: Passive intelligence gathering, SpiderFoot, WHOIS reconnaissance across 10+ simulated org targets.
+   • GitHub: <a href="https://github.com/Muhammedsinanrp/OSINT-Recon-Framework" target="_blank" style="color:var(--cyber-cyan);">github.com/Muhammedsinanrp/OSINT-Recon-Framework</a>
+
+6. <span style="color:var(--cyber-green); font-weight:bold;">Proxmox Cybersecurity Home Lab</span>
+   • Focus: Multi-node Proxmox VE cluster, segmented VLANs, pfSense firewalls, Active Directory, SIEM ingestion.
+   • GitHub: <a href="https://github.com/Muhammedsinanrp/Proxmox-Cybersecurity-Lab" target="_blank" style="color:var(--cyber-cyan);">github.com/Muhammedsinanrp/Proxmox-Cybersecurity-Lab</a>
+
+7. <span style="color:var(--cyber-green); font-weight:bold;">Phishing Simulation & Awareness</span>
+   • Focus: Controlled social engineering setups with MaxPhisher, credential analysis, SPF/DKIM/DMARC hygiene.
+   • GitHub: <a href="https://github.com/Muhammedsinanrp/Phishing-Simulation-Defense" target="_blank" style="color:var(--cyber-cyan);">github.com/Muhammedsinanrp/Phishing-Simulation-Defense</a>
+
+8. <span style="color:var(--cyber-green); font-weight:bold;">Linux Hardening & PenTest Setup</span>
+   • Focus: Hardened Kali & Parrot OS setups, kernel auditd rules, automated bash scanning pipelines.
+   • GitHub: <a href="https://github.com/Muhammedsinanrp/Linux-Hardening-PenTest" target="_blank" style="color:var(--cyber-cyan);">github.com/Muhammedsinanrp/Linux-Hardening-PenTest</a>
         `);
         break;
 
@@ -229,6 +251,46 @@ Repo: <a href="https://github.com/Muhammedsinanrp/Enterprise-ELK-SIEM" target="_
 Stack: Python 3 • Scapy • Raw Sockets • TCP/IP Layer 2-4
 Features: Real-time PCAP stream, anomaly flagging, header inspection, suspicious connection alerting.
 Repo: <a href="https://github.com/Muhammedsinanrp/Packet-Sniffer" target="_blank" style="color:var(--cyber-cyan);">github.com/Muhammedsinanrp/Packet-Sniffer</a>
+        `);
+        break;
+
+      case 'osint':
+      case 'spiderfoot':
+        this.appendLine(`
+<span style="color:var(--cyber-cyan); font-weight:bold;">[PROJECT 5: OSINT RECONNAISSANCE FRAMEWORK]</span>
+Stack: SpiderFoot • WHOIS • Recon-ng • DNS Mining
+Scope: 10+ Simulated organizational targets, passive footprint compilation, attack surface mapping.
+Repo: <a href="https://github.com/Muhammedsinanrp/OSINT-Recon-Framework" target="_blank" style="color:var(--cyber-cyan);">github.com/Muhammedsinanrp/OSINT-Recon-Framework</a>
+        `);
+        break;
+
+      case 'proxmox':
+      case 'homelab':
+        this.appendLine(`
+<span style="color:var(--cyber-cyan); font-weight:bold;">[PROJECT 6: PROXMOX CYBERSECURITY HOME LAB]</span>
+Stack: Proxmox VE • Active Directory • pfSense • Segmented VLANs
+Topology: Multi-node cluster, isolated malware sandbox, SIEM log forwarding pipelines.
+Repo: <a href="https://github.com/Muhammedsinanrp/Proxmox-Cybersecurity-Lab" target="_blank" style="color:var(--cyber-cyan);">github.com/Muhammedsinanrp/Proxmox-Cybersecurity-Lab</a>
+        `);
+        break;
+
+      case 'phishing':
+      case 'maxphisher':
+        this.appendLine(`
+<span style="color:var(--cyber-cyan); font-weight:bold;">[PROJECT 7: PHISHING SIMULATION & AWARENESS]</span>
+Stack: MaxPhisher • Email Security • SPF/DKIM/DMARC • Defense Posture
+Coverage: Controlled awareness testing, credential capture analysis, mail hygiene optimization.
+Repo: <a href="https://github.com/Muhammedsinanrp/Phishing-Simulation-Defense" target="_blank" style="color:var(--cyber-cyan);">github.com/Muhammedsinanrp/Phishing-Simulation-Defense</a>
+        `);
+        break;
+
+      case 'hardening':
+      case 'pentest':
+        this.appendLine(`
+<span style="color:var(--cyber-cyan); font-weight:bold;">[PROJECT 8: LINUX HARDENING & PENTEST SETUP]</span>
+Stack: Kali Linux • Parrot OS • Kernel auditd • Bash Automation
+Highlights: Sysctl system hardening, automated recon pipelines, CIS-aligned security baseline.
+Repo: <a href="https://github.com/Muhammedsinanrp/Linux-Hardening-PenTest" target="_blank" style="color:var(--cyber-cyan);">github.com/Muhammedsinanrp/Linux-Hardening-PenTest</a>
         `);
         break;
 

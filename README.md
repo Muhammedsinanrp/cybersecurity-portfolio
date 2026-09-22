@@ -40,6 +40,26 @@ An ultra-modern, interactive **3D WebGL Cybersecurity Command Station** and port
    - **Stack**: Python 3, Scapy, Raw Sockets, TCP/IP Layer 2-4 Analysis.
    - **Highlights**: Real-time packet capture and analysis tool to parse TCP/IP traffic and flag suspicious connections, abnormal packet headers, port sweep signatures, and unusual protocol behavior.
 
+5. **[OSINT Reconnaissance Framework](https://github.com/Muhammedsinanrp/OSINT-Recon-Framework)**
+   - **Category**: Intelligence Gathering
+   - **Stack**: SpiderFoot, WHOIS, Recon-ng, DNS Mining.
+   - **Highlights**: Conducted passive intelligence gathering labs using SpiderFoot and WHOIS-based domain reconnaissance across 10+ simulated organizational targets, aggregating threat footprints and leaked asset registers.
+
+6. **[Proxmox Cybersecurity Home Lab](https://github.com/Muhammedsinanrp/Proxmox-Cybersecurity-Lab)**
+   - **Category**: Infrastructure & Virtualization
+   - **Stack**: Proxmox VE, Active Directory, pfSense, VLAN Segmentation.
+   - **Highlights**: Architected and deployed a dedicated multi-node cybersecurity home lab utilizing Proxmox VE. Configured segmented VLANs, Active Directory domain controllers, pfSense firewalls, and logging endpoints for continuous malware testing and SIEM ingestion.
+
+7. **[Phishing Simulation & Awareness](https://github.com/Muhammedsinanrp/Phishing-Simulation-Defense)**
+   - **Category**: Social Engineering & Defense
+   - **Stack**: MaxPhisher, Email Security, SPF/DKIM/DMARC, Defense Posture.
+   - **Highlights**: Executed social engineering awareness setups using MaxPhisher in controlled environments. Analyzed credential capture methods and formulated user defense strategies, mail security policies, and SPF/DKIM/DMARC hygiene.
+
+8. **[Linux Hardening & PenTest Setup](https://github.com/Muhammedsinanrp/Linux-Hardening-PenTest)**
+   - **Category**: Offensive Environment
+   - **Stack**: Kali Linux, Parrot OS, Hardening, Bash Automation.
+   - **Highlights**: Configured and hardened custom Kali Linux and Parrot Security OS setups for security assessments, including automated network scanning scripts, kernel audit rules, and vulnerability identification suites.
+
 ---
 
 ## 🛠️ Tech Stack

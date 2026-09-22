@@ -657,6 +657,115 @@ Capturing raw frames across data link layer...
 <span class="log-green">[+] Output Exported:</span> Session PCAP written to /logs/capture_20260922_threat.pcap for forensic review.
 </pre>`;
         break;
+
+      case 'osint':
+        modalTitle.textContent = 'INTELLIGENCE GATHERING — OSINT RECONNAISSANCE FRAMEWORK';
+        terminalTitle.textContent = 'SPIDERFOOT AUTOMATION & PASSIVE THREAT FOOTPRINT EXTRACTION';
+        githubLink.href = 'https://github.com/Muhammedsinanrp/OSINT-Recon-Framework';
+        hudStats.innerHTML = `
+          <div class="m-stat"><span class="m-lbl">TARGETS</span><span class="m-val text-cyan">10+ Orgs</span></div>
+          <div class="m-stat"><span class="m-lbl">ENGINE</span><span class="m-val text-green">SpiderFoot 4.0</span></div>
+          <div class="m-stat"><span class="m-lbl">RECON MODE</span><span class="m-val text-amber">Passive Intel</span></div>
+          <div class="m-stat"><span class="m-lbl">LEAK FOOTPRINT</span><span class="m-val text-red">Aggregated</span></div>
+        `;
+        output.innerHTML = `
+<pre class="telemetry-log">
+<span class="log-cyan">[SPIDERFOOT RECONNAISSANCE ENGINE DISPATCH]</span> Target Scope: "target-corp-sim.net"
+Modules: sfp_whois, sfp_dnsresolve, sfp_reconng, sfp_shodan, sfp_haveibeenpwned
+
+<span class="log-dim">[PASSIVE DISCOVERY 08:14:02]</span> Resolving root name servers and subdomains...
+<span class="log-green">[+] WHOIS Extraction:</span> Registrar: MarkMonitor Inc. | DNSSEC: Unsigned | IP Subnet: 198.51.100.0/24
+<span class="log-green">[+] DNS Mining:</span> Found 24 Subdomains (vpn.target-corp-sim.net, mail.target-corp-sim.net, dev-api.target-corp-sim.net)
+<span class="log-green">[+] Recon-ng Asset Synthesis:</span> Correlated 18 employee email handles against leaked credential caches
+<span class="log-amber">[!] Attack Surface Warning:</span> Staging API endpoint exposed with legacy TLS 1.0 handshake enabled
+<span class="log-green">[+] Intelligence Synthesis:</span> Generated comprehensive attack surface register without generating single active packet to target network.
+</pre>`;
+        break;
+
+      case 'proxmox':
+        modalTitle.textContent = 'INFRASTRUCTURE & VIRTUALIZATION — PROXMOX CYBER LAB';
+        terminalTitle.textContent = 'PROXMOX VE CLUSTER TOPOLOGY, PFSENSE ROUTING & AD INGESTION';
+        githubLink.href = 'https://github.com/Muhammedsinanrp/Proxmox-Cybersecurity-Lab';
+        hudStats.innerHTML = `
+          <div class="m-stat"><span class="m-lbl">HYPERVISOR</span><span class="m-val text-cyan">Proxmox VE 8</span></div>
+          <div class="m-stat"><span class="m-lbl">FIREWALL</span><span class="m-val text-green">pfSense CE</span></div>
+          <div class="m-stat"><span class="m-lbl">SEGMENTS</span><span class="m-val text-amber">VLAN 10/20/30</span></div>
+          <div class="m-stat"><span class="m-lbl">INGESTION</span><span class="m-val text-green">Syslog Forwarding</span></div>
+        `;
+        output.innerHTML = `
+<pre class="telemetry-log">
+<span class="log-cyan">[PROXMOX CLUSTER TOPOLOGY ACTIVE]</span> Node: pve-node01 (AMD Ryzen 8-Core / 64GB RAM)
+Bridged Virtual Networks: vmbr0 (WAN), vmbr1 (Segmented Trunk)
+
+<span class="log-dim">[VLAN SEGMENTATION AUDIT]</span>
+├─ <span class="log-green">VLAN 10 [CORP_AD]:</span> Windows Server 2022 DC (10.10.10.1) + 2 Workstation Endpoints
+├─ <span class="log-cyan">VLAN 20 [SOC_SENSORS]:</span> Wazuh SIEM 4.7 + Snort IDS Tap + Splunk Indexer (10.10.20.5)
+└─ <span class="log-red">VLAN 30 [MALWARE_DETONATION]:</span> Isolated sandbox; zero WAN egress; strictly monitored tap.
+
+<span class="log-green">[+] pfSense Gateway State:</span> Filter rules active. Inter-VLAN routing strictly restricted to port 514/syslog & 1514/wazuh.
+<span class="log-green">[+] Continuous Detonation Test:</span> Agent forwarding telemetry to Splunk & Wazuh with 0% host escape leakage.
+</pre>`;
+        break;
+
+      case 'phishing':
+        modalTitle.textContent = 'SOCIAL ENGINEERING & DEFENSE — PHISHING SIMULATION';
+        terminalTitle.textContent = 'MAXPHISHER CONTROLLED CAMPAIGN & MAIL SECURITY HYGIENE';
+        githubLink.href = 'https://github.com/Muhammedsinanrp/Phishing-Simulation-Defense';
+        hudStats.innerHTML = `
+          <div class="m-stat"><span class="m-lbl">SIMULATOR</span><span class="m-val text-cyan">MaxPhisher</span></div>
+          <div class="m-stat"><span class="m-lbl">DMARC POLICY</span><span class="m-val text-green">p=reject</span></div>
+          <div class="m-stat"><span class="m-lbl">SPF / DKIM</span><span class="m-val text-green">Strict Pass</span></div>
+          <div class="m-stat"><span class="m-lbl">AWARENESS</span><span class="m-val text-amber">Defense Runbook</span></div>
+        `;
+        output.innerHTML = `
+<pre class="telemetry-log">
+<span class="log-cyan">[CONTROLLED SOCIAL ENGINEERING CAMPAIGN]</span> Framework: MaxPhisher Engine
+Target Scope: Controlled internal security awareness simulation cohort (25 test mailboxes)
+
+<span class="log-dim">[ATTACK SIMULATION METRICS]</span>
+• Phishing Emails Dispatched: 25 | Delivery Rate: 100%
+• Initial Link Clicks: 7 (28%)
+• Credential Submission Attempts: 3 (12%) - Immediate training landing page triggered
+
+<span class="log-green">[+] Defense Posture Optimization Formulated:</span>
+├─ <span class="log-cyan">SPF Record:</span> v=spf1 ip4:198.51.100.25 include:_spf.google.com ~all
+├─ <span class="log-cyan">DKIM Signing:</span> 2048-bit RSA key rotation implemented across outbound gateways
+└─ <span class="log-green">DMARC Enforcement:</span> Upgraded policy from p=none to p=reject (rua=mailto:dmarc-reports@domain.com)
+<span class="log-green">[+] Runbook Published:</span> User awareness module & suspicious email triage flowchart distributed to organization.
+</pre>`;
+        break;
+
+      case 'hardening':
+        modalTitle.textContent = 'OFFENSIVE ENVIRONMENT — LINUX HARDENING & PENTEST SETUP';
+        terminalTitle.textContent = 'KALI & PARROT HARDENING AUDIT, KERNEL RULES & BASH AUTOMATION';
+        githubLink.href = 'https://github.com/Muhammedsinanrp/Linux-Hardening-PenTest';
+        hudStats.innerHTML = `
+          <div class="m-stat"><span class="m-lbl">DISTROS</span><span class="m-val text-cyan">Kali & Parrot</span></div>
+          <div class="m-stat"><span class="m-lbl">SECURITY SCORE</span><span class="m-val text-green">86/100 (Lynis)</span></div>
+          <div class="m-stat"><span class="m-lbl">AUDITD</span><span class="m-val text-amber">Active Kernel Rules</span></div>
+          <div class="m-stat"><span class="m-lbl">AUTOMATION</span><span class="m-val text-green">Bash Recon Suite</span></div>
+        `;
+        output.innerHTML = `
+<pre class="telemetry-log">
+<span class="log-cyan">[OFFENSIVE ENVIRONMENT HARDENING & AUDIT ENGINE]</span>
+Audited System: Linux kali-security-workstation 6.6.9-amd64
+
+<span class="log-green">[+] Sysctl Hardening Applied (/etc/sysctl.d/99-security.conf):</span>
+  fs.protected_hardlinks = 1
+  fs.protected_symlinks = 1
+  kernel.randomize_va_space = 2 (Full ASLR Enabled)
+  net.ipv4.tcp_syncookies = 1 (SYN Flood Mitigation)
+  net.ipv4.conf.all.rp_filter = 1 (Spoofing Protection)
+
+<span class="log-green">[+] Linux Auditd Rules Active:</span>
+  -w /etc/passwd -p wa -k identity_tamper
+  -w /etc/shadow -p wa -k identity_tamper
+  -a always,exit -F arch=b64 -S execve -k root_exec
+
+<span class="log-cyan">[+] PenTest Automation Suite:</span>
+  Executed auto-recon.sh: Automated multi-stage nmap discovery -> gobuster directory brute-force -> banner grab pipeline.
+</pre>`;
+        break;
     }
   }, 600);
 };
