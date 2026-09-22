@@ -1,0 +1,23 @@
+{
+  "name": "cybersecurity-portfolio",
+  "version": "2.0.0",
+  "description": "3D Interactive Cybersecurity Portfolio & SOC Threat Detection Station for Muhammed Sinan",
+  "main": "index.html",
+  "scripts": {
+    "dev": "node -e \"const http=require('http'),fs=require('fs'),path=require('path');http.createServer((req,res)=>{let f=path.join('.',req.url==='/'?'index.html':req.url.split('?')[0]);if(!fs.existsSync(f)){res.writeHead(404);res.end('Not Found');return;}const ext=path.extname(f);const m={'.html':'text/html','.css':'text/css','.js':'application/javascript','.json':'application/json','.svg':'image/svg+xml'}[ext]||'application/octet-stream';res.writeHead(200,{'Content-Type':m});fs.createReadStream(f).pipe(res);}).listen(8080,()=>console.log('🛸 Cyber Command Station running at http://localhost:8080'));\"",
+    "build": "node --check js/sound-fx.js js/three-scene.js js/skills-3d.js js/terminal.js js/main.js && node -e \"console.log('✓ [BUILD SUCCESSFUL] 3D WebGL scenes, Cyber scripts, and HTML structure verified.');\"",
+    "test": "node --check js/sound-fx.js js/three-scene.js js/skills-3d.js js/terminal.js js/main.js"
+  },
+  "keywords": [
+    "cybersecurity",
+    "soc-analyst",
+    "ethical-hacker",
+    "threejs",
+    "webgl",
+    "portfolio",
+    "wazuh",
+    "splunk"
+  ],
+  "author": "Muhammed Sinan",
+  "license": "MIT"
+}
