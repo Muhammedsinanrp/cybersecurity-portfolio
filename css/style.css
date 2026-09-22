@@ -169,6 +169,8 @@ body {
 /* Custom Interactive Cyber Reticle Cursor */
 .custom-cursor {
   position: fixed;
+  top: 0;
+  left: 0;
   width: 28px;
   height: 28px;
   border: 1.5px solid var(--cyber-cyan);
@@ -181,6 +183,8 @@ body {
 }
 .custom-cursor-dot {
   position: fixed;
+  top: 0;
+  left: 0;
   width: 6px;
   height: 6px;
   background-color: var(--cyber-cyan);
@@ -196,6 +200,13 @@ body {
   border-color: var(--cyber-green);
   background-color: rgba(0, 255, 136, 0.1);
   box-shadow: 0 0 20px rgba(0, 255, 136, 0.5);
+}
+
+@media (hover: none) and (pointer: coarse) {
+  .custom-cursor,
+  .custom-cursor-dot {
+    display: none !important;
+  }
 }
 
 /* Content Layer Wrapper */
@@ -2176,7 +2187,7 @@ textarea.form-control {
     grid-template-columns: repeat(2, 1fr);
   }
 
-  .summary-grid, .soc-radar-container, .contact-grid {
+  .summary-grid, .soc-radar-container, .contact-grid, .skills-3d-showcase-container {
     grid-template-columns: 1fr;
   }
 
@@ -2190,6 +2201,10 @@ textarea.form-control {
 }
 
 @media (max-width: 600px) {
+  .skills-3d-stage-wrapper {
+    height: 340px;
+  }
+
   .hero-telemetry-hud {
     grid-template-columns: 1fr 1fr;
     gap: 10px;

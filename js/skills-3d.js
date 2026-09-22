@@ -438,7 +438,7 @@ class Skills3DGalaxy {
     window.addEventListener('resize', () => {
       if (!this.container || !this.renderer || !this.camera) return;
       const w = this.container.clientWidth;
-      const h = 480;
+      const h = this.container.clientHeight || 480;
       this.camera.aspect = w / h;
       this.camera.updateProjectionMatrix();
       this.renderer.setSize(w, h);
@@ -543,7 +543,7 @@ class Skills3DGalaxy {
     const intersects = this.raycaster.intersectObjects(this.nodes, true);
 
     if (intersects.length > 0) {
-      document.body.style.cursor = 'pointer';
+      this.container.style.cursor = 'pointer';
       let hitMesh = intersects[0].object;
       while (hitMesh.parent && !hitMesh.userData.tool) {
         hitMesh = hitMesh.parent;
@@ -553,7 +553,7 @@ class Skills3DGalaxy {
         if (window.cyberSound) window.cyberSound.playHover();
       }
     } else {
-      document.body.style.cursor = 'default';
+      this.container.style.cursor = 'grab';
       this.hoveredNode = null;
     }
 

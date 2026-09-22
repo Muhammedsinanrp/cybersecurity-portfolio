@@ -32,13 +32,13 @@ function initCustomCursor() {
   window.addEventListener('mousemove', (e) => {
     mouseX = e.clientX;
     mouseY = e.clientY;
-    dot.style.transform = `translate(${mouseX}px, ${mouseY}px)`;
+    dot.style.transform = `translate(${mouseX}px, ${mouseY}px) translate(-50%, -50%)`;
   });
 
   function renderCursor() {
     cursorX += (mouseX - cursorX) * 0.18;
     cursorY += (mouseY - cursorY) * 0.18;
-    cursor.style.transform = `translate(${cursorX}px, ${cursorY}px)`;
+    cursor.style.transform = `translate(${cursorX}px, ${cursorY}px) translate(-50%, -50%)`;
     requestAnimationFrame(renderCursor);
   }
   requestAnimationFrame(renderCursor);
@@ -464,6 +464,14 @@ function initNavScroll() {
       navLinks.style.background = 'rgba(5, 8, 17, 0.95)';
       navLinks.style.padding = '20px';
       navLinks.style.borderBottom = '1px solid var(--border-cyan)';
+    });
+
+    navLinks.querySelectorAll('a').forEach(link => {
+      link.addEventListener('click', () => {
+        if (window.innerWidth <= 992) {
+          navLinks.style.display = 'none';
+        }
+      });
     });
   }
 }
