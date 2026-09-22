@@ -101,6 +101,7 @@ class CyberTerminal {
   <span style="color:var(--cyber-green);">summary</span>      - Read professional background & career goal
   <span style="color:var(--cyber-green);">skills</span>       - List core technical arsenal & SIEM tools
   <span style="color:var(--cyber-green);">projects</span>     - Inspect 4 Selected SOC Projects & GitHub Repos
+  <span style="color:var(--cyber-green);">tester</span>       - Launch Interactive SOC Project Playground
   <span style="color:var(--cyber-green);">wazuh</span>        - Network Threat Detection Lab (Wazuh + Snort + Wireshark)
   <span style="color:var(--cyber-green);">splunk</span>       - Splunk Enterprise Attack Detection & Dashboards
   <span style="color:var(--cyber-green);">elk</span>          - Windows Log Analysis & Sigma Rules Lab
@@ -111,7 +112,7 @@ class CyberTerminal {
   <span style="color:var(--cyber-green);">scan</span>         - Run simulated vulnerability & port scan
   <span style="color:var(--cyber-green);">contact</span>      - Display email, LinkedIn & socials
   <span style="color:var(--cyber-green);">matrix</span>       - Toggle Matrix Rain HUD visualizer
-  <span style="color:var(--cyber-green);">theme</span>        - Change theme [cyan | emerald | crimson]
+  <span style="color:var(--cyber-green);">theme</span>        - Change theme [anime | blackhat | emerald | crimson | cyan]
   <span style="color:var(--cyber-green);">clear</span>        - Clear terminal console
         `);
         break;
@@ -270,7 +271,13 @@ Repo: <a href="https://github.com/Muhammedsinanrp/Packet-Sniffer" target="_blank
         break;
 
       case 'theme':
-        if (arg === 'emerald') {
+        if (arg === 'anime') {
+          document.body.className = 'theme-anime-hacker';
+          this.appendLine('Theme switched to <span style="color:#ff007f;">Anime Cyber Mecha (Edgerunners Neon)</span>.');
+        } else if (arg === 'blackhat') {
+          document.body.className = 'theme-blackhat';
+          this.appendLine('Theme switched to <span style="color:#00ff88;">Black Hat Hacker Overdrive</span>.');
+        } else if (arg === 'emerald') {
           document.body.className = 'theme-emerald';
           this.appendLine('Theme switched to <span style="color:#00ff88;">Emerald Cyber Matrix</span>.');
         } else if (arg === 'crimson') {
@@ -279,6 +286,16 @@ Repo: <a href="https://github.com/Muhammedsinanrp/Packet-Sniffer" target="_blank
         } else {
           document.body.className = '';
           this.appendLine('Theme switched to <span style="color:#00f2fe;">Cyan Cyber Command</span>.');
+        }
+        if (window.cyberSound) window.cyberSound.playAccessGranted();
+        break;
+
+      case 'tester':
+      case 'playground':
+        this.appendLine('<span style="color:var(--cyber-cyan);">[+] Navigating to Interactive SOC Project Tester & Playground...</span>');
+        const testerSec = document.getElementById('project-tester');
+        if (testerSec) {
+          testerSec.scrollIntoView({ behavior: 'smooth' });
         }
         break;
 

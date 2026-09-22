@@ -14,6 +14,7 @@ document.addEventListener('DOMContentLoaded', () => {
   initHUDControls();
   initContactForm();
   initNavScroll();
+  initProjectTester();
 });
 
 /* ==========================================================================
@@ -346,13 +347,13 @@ function initHUDControls() {
 
   // Theme Toggle Button
   const themeBtn = document.getElementById('theme-toggle-btn');
-  const themes = ['', 'theme-blackhat', 'theme-emerald', 'theme-crimson'];
+  const themes = ['', 'theme-anime-hacker', 'theme-blackhat', 'theme-emerald', 'theme-crimson'];
   let currentThemeIdx = 0;
   if (themeBtn) {
     themeBtn.addEventListener('click', () => {
       currentThemeIdx = (currentThemeIdx + 1) % themes.length;
       document.body.className = themes[currentThemeIdx];
-      const names = ['Cyan Cyber Command', 'Black Hat Hacker Overdrive', 'Emerald Matrix', 'Crimson Threat Defense'];
+      const names = ['Cyan Cyber Command', 'Anime Cyber Mecha (Edgerunners)', 'Black Hat Hacker Overdrive', 'Emerald Matrix', 'Crimson Threat Defense'];
       showToast(`🎨 Theme: ${names[currentThemeIdx]}`);
       if (window.cyberSound) window.cyberSound.playHover();
     });
@@ -659,3 +660,164 @@ Capturing raw frames across data link layer...
     }
   }, 600);
 };
+
+/* ==========================================================================
+   12. Interactive SOC Project Tester & Playground Engine
+   ========================================================================== */
+function initProjectTester() {
+  const projBtns = document.querySelectorAll('.tester-proj-btn');
+  const attackBtns = document.querySelectorAll('.attack-vector-btn');
+  const execBtn = document.getElementById('btn-execute-tester-attack');
+  const consoleBody = document.getElementById('tester-console-body');
+  const repoBtn = document.getElementById('tester-view-repo-btn');
+
+  // Metrics
+  const targetLabMetric = document.getElementById('metric-target-lab');
+  const mitreMetric = document.getElementById('metric-mitre-id');
+  const latencyMetric = document.getElementById('metric-latency');
+  const statusMetric = document.getElementById('metric-status');
+
+  // Phases
+  const phase1 = document.getElementById('phase-1');
+  const phase2 = document.getElementById('phase-2');
+  const phase3 = document.getElementById('phase-3');
+  const phase4 = document.getElementById('phase-4');
+
+  if (!execBtn || !consoleBody) return;
+
+  let currentProject = 'wazuh';
+  let currentAttack = 'nmap_syn';
+  let isSimulating = false;
+
+  const projectRepos = {
+    wazuh: 'https://github.com/Muhammedsinanrp/Network-Threat-Detection-Lab',
+    splunk: 'https://github.com/Muhammedsinanrp/SOC-Home-Lab',
+    elk: 'https://github.com/Muhammedsinanrp/Enterprise-ELK-SIEM',
+    sniffer: 'https://github.com/Muhammedsinanrp/Packet-Sniffer'
+  };
+
+  const projectNames = {
+    wazuh: 'Wazuh SIEM + Snort IDS Lab',
+    splunk: 'Splunk Enterprise SOC Lab',
+    elk: 'Windows Log Analysis (ELK + Sigma)',
+    sniffer: 'Python Packet Sniffer (Scapy DPI)'
+  };
+
+  const attackMitreMap = {
+    nmap_syn: 'T1046 (Network Service Discovery)',
+    rdp_brute: 'T1110.001 (Password Spraying: RDP)',
+    dns_c2: 'T1071.004 (Application Layer Protocol: DNS C2)',
+    mimikatz: 'T1003.001 (OS Credential Dumping: LSASS)',
+    kerberoasting: 'T1558.003 (Steal/Forge Kerberos: Kerberoasting)'
+  };
+
+  // Project selector click
+  projBtns.forEach(btn => {
+    btn.addEventListener('click', () => {
+      projBtns.forEach(b => b.classList.remove('active'));
+      btn.classList.add('active');
+      currentProject = btn.getAttribute('data-project');
+
+      if (targetLabMetric) targetLabMetric.textContent = projectNames[currentProject] || currentProject;
+      if (repoBtn) repoBtn.href = projectRepos[currentProject] || '#';
+      if (window.cyberSound) window.cyberSound.playHover();
+      showToast(`🎯 Target Security Lab: ${projectNames[currentProject]}`);
+    });
+  });
+
+  // Attack selector click
+  attackBtns.forEach(btn => {
+    btn.addEventListener('click', () => {
+      attackBtns.forEach(b => b.classList.remove('active'));
+      btn.classList.add('active');
+      currentAttack = btn.getAttribute('data-attack');
+
+      if (mitreMetric) mitreMetric.textContent = attackMitreMap[currentAttack] || currentAttack;
+      if (window.cyberSound) window.cyberSound.playHover();
+    });
+  });
+
+  // Execute attack simulation
+  execBtn.addEventListener('click', () => {
+    if (isSimulating) return;
+    isSimulating = true;
+    execBtn.disabled = true;
+
+    // Reset phase UI
+    [phase1, phase2, phase3, phase4].forEach(p => {
+      if (p) p.className = 'phase-step';
+    });
+
+    if (statusMetric) {
+      statusMetric.innerHTML = '<span style="color:#ffb703;"><i class="fas fa-spinner fa-spin"></i> ATTACK INJECTED...</span>';
+    }
+    if (latencyMetric) latencyMetric.textContent = 'Measuring...';
+
+    if (window.cyberSound) window.cyberSound.playRadarPing();
+    consoleBody.innerHTML = `<div class="tester-log-row"><span class="log-amber">[STAGE 1: ADVERSARY INJECTION]</span> Transmitting payload <span class="log-cyan">${currentAttack.toUpperCase()}</span> against <span class="log-cyan">${projectNames[currentProject]}</span>...</div>`;
+
+    // Step 1: Inject
+    if (phase1) phase1.classList.add('active');
+
+    // Step 2: Detect (Snort / IDS / Scapy)
+    setTimeout(() => {
+      if (phase1) { phase1.classList.remove('active'); phase1.classList.add('completed'); }
+      if (phase2) phase2.classList.add('active');
+
+      let idsOutput = '';
+      if (currentProject === 'sniffer') {
+        idsOutput = `<span class="log-cyan">[SCAPY-RAW-SNIFFER]</span> Flagged TCP header anomaly. Packet flags [SYN=1, ACK=0] Window: 1024 -> Signature matches automated scanner.`;
+      } else {
+        idsOutput = `<span class="log-cyan">[SNORT-3-IDS]</span> RULE TRIGGERED: alert tcp any any -> 192.168.10.15 (sid:${Math.floor(2000000 + Math.random()*90000)}; rev:1; msg:"Adversary signature detected - ${currentAttack.toUpperCase()}");`;
+      }
+
+      consoleBody.innerHTML += `<div class="tester-log-row">${idsOutput}</div>`;
+      consoleBody.scrollTop = consoleBody.scrollHeight;
+      if (window.cyberSound) window.cyberSound.playKeypress();
+    }, 550);
+
+    // Step 3: Correlate (SIEM / SPL / EQL)
+    setTimeout(() => {
+      if (phase2) { phase2.classList.remove('active'); phase2.classList.add('completed'); }
+      if (phase3) phase3.classList.add('active');
+
+      let siemOutput = '';
+      if (currentProject === 'splunk') {
+        siemOutput = `<span class="log-green">[SPLUNK-DETECTION-ENGINE]</span> Correlation Search Matched: 42 events aggregated in 30s. Triggered High-Priority Alert "Adversary Triage: ${currentAttack}".`;
+      } else if (currentProject === 'elk') {
+        siemOutput = `<span class="log-green">[ELASTIC-SIEM-EQL]</span> Sequence rule matched logon event threshold. Sigma rule "win_${currentAttack}" evaluated true across 2 domain hosts.`;
+      } else if (currentProject === 'sniffer') {
+        siemOutput = `<span class="log-green">[PYTHON-HEURISTIC-PIPELINE]</span> Analyzed 1,480 packets in 0.18s. Port entropy calculation exceeded baseline threshold (Z-Score: +4.2).`;
+      } else {
+        siemOutput = `<span class="log-green">[WAZUH-SIEM-ANALYSIS]</span> Normalized event to MITRE ATT&CK ${attackMitreMap[currentAttack]}. Rule Level: 12 (High Threat Incident Generated).`;
+      }
+
+      consoleBody.innerHTML += `<div class="tester-log-row">${siemOutput}</div>`;
+      consoleBody.scrollTop = consoleBody.scrollHeight;
+      if (window.cyberSound) window.cyberSound.playKeypress();
+    }, 1100);
+
+    // Step 4: Contain & Complete
+    setTimeout(() => {
+      if (phase3) { phase3.classList.remove('active'); phase3.classList.add('completed'); }
+      if (phase4) { phase4.classList.add('active', 'completed'); }
+
+      const latencyMs = (Math.random() * 0.12 + 0.12).toFixed(2);
+      if (latencyMetric) latencyMetric.textContent = `${latencyMs}s`;
+      if (statusMetric) statusMetric.innerHTML = '<span class="status-blocked">BLOCKED & MITIGATED [✓]</span>';
+
+      consoleBody.innerHTML += `
+<div class="tester-log-row" style="margin-top:8px; border-top:1px dashed rgba(0,255,102,0.3); padding-top:8px;">
+<span class="log-green">[+] AUTOMATED INCIDENT RESPONSE:</span> Host firewall drop rule applied. Attacker IP null-routed. Forensic PCAP session dumped to SOC archive.
+<br><span style="color:#00ff66; font-weight:700;">[✓] THREAT NEUTRALIZED BY MUHAMMED SINAN'S DETECTION ARCHITECTURE.</span>
+</div>`;
+      consoleBody.scrollTop = consoleBody.scrollHeight;
+
+      if (window.cyberSound) window.cyberSound.playAccessGranted();
+      showToast(`🛡️ Threat Blocked: ${currentAttack.toUpperCase()} neutralized in ${latencyMs}s!`);
+
+      isSimulating = false;
+      execBtn.disabled = false;
+    }, 1700);
+  });
+}

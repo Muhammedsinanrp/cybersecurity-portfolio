@@ -63,6 +63,7 @@
           <li><a href="#soc-ops" class="nav-link">SOC Ops</a></li>
           <li><a href="#experience" class="nav-link">Experience</a></li>
           <li><a href="#projects" class="nav-link">Projects</a></li>
+          <li><a href="#project-tester" class="nav-link">Tester</a></li>
           <li><a href="#certifications" class="nav-link">Certs</a></li>
           <li><a href="#contact" class="nav-link">Contact</a></li>
         </ul>
@@ -1083,6 +1084,152 @@
         </div>
       </div>
     </div>
+
+    <!-- ==========================================================================
+         Interactive SOC Project Tester & Playground (Anime Cyber Engine)
+         ========================================================================== -->
+    <section class="section project-tester-section" id="project-tester">
+      <div class="container">
+        <div class="section-header">
+          <div class="section-tag anime-neon-tag">
+            <span class="anime-kanji">プロジェクト・テスター</span>
+            <i class="fas fa-crosshairs"></i> LIVE ATTACK PLAYGROUND
+          </div>
+          <h2 class="section-title">Interactive SOC Project Tester & Simulation Deck</h2>
+          <p class="section-subtitle">Select any of my 4 SOC projects, arm a simulated adversary payload, and watch real-time SIEM, IDS, and packet inspection defenses stream live.</p>
+        </div>
+
+        <div class="tester-arena-grid">
+          
+          <!-- Controls Panel (Project Selector & Attack Vector Armory) -->
+          <div class="tester-controls-card">
+            <div class="tester-card-header">
+              <span class="hud-corner-bracket tl"></span>
+              <span class="hud-corner-bracket tr"></span>
+              <h4><i class="fas fa-microchip"></i> 1. SELECT TARGET SECURITY LAB</h4>
+            </div>
+            
+            <div class="tester-project-selector" id="tester-project-selector">
+              <button class="tester-proj-btn active" data-project="wazuh">
+                <div class="proj-btn-icon"><i class="fas fa-shield-virus"></i></div>
+                <div class="proj-btn-text">
+                  <strong>Network Threat Detection Lab</strong>
+                  <span>Wazuh SIEM • Snort IDS • Wireshark</span>
+                </div>
+              </button>
+
+              <button class="tester-proj-btn" data-project="splunk">
+                <div class="proj-btn-icon" style="color:#ffb703; border-color:#ffb703;"><i class="fas fa-chart-line"></i></div>
+                <div class="proj-btn-text">
+                  <strong>SOC Home Lab</strong>
+                  <span>Splunk Enterprise • Attack Detection</span>
+                </div>
+              </button>
+
+              <button class="tester-proj-btn" data-project="elk">
+                <div class="proj-btn-icon" style="color:var(--cyber-purple); border-color:var(--cyber-purple);"><i class="fas fa-cubes"></i></div>
+                <div class="proj-btn-text">
+                  <strong>Windows Log Analysis Lab</strong>
+                  <span>Splunk & Elastic SIEM • Sigma Rules</span>
+                </div>
+              </button>
+
+              <button class="tester-proj-btn" data-project="sniffer">
+                <div class="proj-btn-icon" style="color:#00ff88; border-color:#00ff88;"><i class="fab fa-python"></i></div>
+                <div class="proj-btn-text">
+                  <strong>Python Packet Sniffer</strong>
+                  <span>Real-Time Scapy DPI Engine</span>
+                </div>
+              </button>
+            </div>
+
+            <div class="tester-card-header mt-4">
+              <h4><i class="fas fa-biohazard"></i> 2. ARM ADVERSARY PAYLOAD</h4>
+            </div>
+
+            <div class="tester-attack-armory" id="tester-attack-armory">
+              <button class="attack-vector-btn active" data-attack="nmap_syn">
+                <span class="attack-code">T1046</span>
+                <span class="attack-name">Nmap Stealth SYN Scan</span>
+              </button>
+              <button class="attack-vector-btn" data-attack="rdp_brute">
+                <span class="attack-code">T1110.001</span>
+                <span class="attack-name">RDP Hydra Password Spray</span>
+              </button>
+              <button class="attack-vector-btn" data-attack="dns_c2">
+                <span class="attack-code">T1071.004</span>
+                <span class="attack-name">DNS C2 Exfiltration Tunnel</span>
+              </button>
+              <button class="attack-vector-btn" data-attack="mimikatz">
+                <span class="attack-code">T1003.001</span>
+                <span class="attack-name">LSASS Memory Credential Dump</span>
+              </button>
+              <button class="attack-vector-btn" data-attack="kerberoasting">
+                <span class="attack-code">T1558.003</span>
+                <span class="attack-name">Active Directory Kerberoasting</span>
+              </button>
+            </div>
+
+            <button class="btn btn-execute-attack" id="btn-execute-tester-attack">
+              <i class="fas fa-radiation"></i> EXECUTE ATTACK SIMULATION
+            </button>
+          </div>
+
+          <!-- Real-Time Telemetry & Defense Screen -->
+          <div class="tester-terminal-card">
+            <div class="tester-screen-header">
+              <div class="screen-title-area">
+                <span class="pulse-beacon"></span>
+                <span class="screen-title">ACTIVE CYBER DEFENSE TELEMETRY FEED</span>
+                <span class="anime-kanji-sub">リアルタイム検知</span>
+              </div>
+              <div class="hud-phase-stepper" id="hud-phase-stepper">
+                <span class="phase-step" id="phase-1">1. INJECT</span>
+                <span class="phase-step" id="phase-2">2. DETECT</span>
+                <span class="phase-step" id="phase-3">3. CORRELATE</span>
+                <span class="phase-step" id="phase-4">4. CONTAIN</span>
+              </div>
+            </div>
+
+            <!-- HUD Stat Badges -->
+            <div class="tester-hud-metrics" id="tester-hud-metrics">
+              <div class="t-metric-box">
+                <span class="t-lbl">TARGET LAB</span>
+                <span class="t-val text-cyan" id="metric-target-lab">Wazuh + Snort Lab</span>
+              </div>
+              <div class="t-metric-box">
+                <span class="t-lbl">MITRE TECHNIQUE</span>
+                <span class="t-val text-amber" id="metric-mitre-id">T1046 (Network Service Discovery)</span>
+              </div>
+              <div class="t-metric-box">
+                <span class="t-lbl">DETECTION LATENCY</span>
+                <span class="t-val text-green" id="metric-latency">0.14s</span>
+              </div>
+              <div class="t-metric-box">
+                <span class="t-lbl">DEFENSE STATUS</span>
+                <span class="t-val status-blocked" id="metric-status">READY FOR ATTACK</span>
+              </div>
+            </div>
+
+            <!-- Console Log Output -->
+            <div class="tester-console-body" id="tester-console-body">
+              <div class="tester-welcome-log">
+                <span style="color:var(--cyber-cyan);">[SOC-PLAYGROUND-INIT v3.2]</span> Simulator armed and listening.
+                <br>Select a target project & attack payload from the left console, then click <strong>EXECUTE ATTACK SIMULATION</strong> to observe live IDS/SIEM containment response.
+              </div>
+            </div>
+
+            <div class="tester-screen-footer">
+              <span class="security-analyst-tag"><i class="fas fa-user-shield"></i> SOC Candidate: Muhammed Sinan</span>
+              <a href="https://github.com/Muhammedsinanrp/Network-Threat-Detection-Lab" id="tester-view-repo-btn" target="_blank" rel="noopener noreferrer" class="btn btn-sm btn-terminal">
+                <i class="fab fa-github"></i> Inspect Lab Source Code
+              </a>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </section>
 
     <!-- ==========================================================================
          Certifications & Credentials

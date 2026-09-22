@@ -48,6 +48,21 @@
 }
 
 /* Theme Variations */
+body.theme-anime-hacker {
+  --bg-primary: #03030c;
+  --bg-secondary: #08061a;
+  --bg-card: rgba(12, 8, 28, 0.94);
+  --cyber-cyan: #00f2fe;
+  --cyber-blue: #7209b7;
+  --cyber-pink: #ff007f;
+  --cyber-green: #00ff66;
+  --cyber-purple: #b5179e;
+  --text-cyber: #ff007f;
+  --border-cyan: rgba(255, 0, 127, 0.4);
+  --border-cyan-bright: rgba(255, 0, 127, 0.85);
+  --glow-cyan: 0 0 35px rgba(255, 0, 127, 0.5);
+}
+
 body.theme-blackhat {
   --bg-primary: #020408;
   --bg-secondary: #050a14;
@@ -2189,6 +2204,374 @@ body {
 
 @media (max-width: 768px) {
   .modal-telemetry-hud {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+/* ==========================================================================
+   Interactive SOC Project Tester & Anime Cyber Playground
+   ========================================================================== */
+.anime-neon-tag {
+  background: rgba(255, 0, 127, 0.12) !important;
+  border-color: rgba(255, 0, 127, 0.45) !important;
+  color: #ff007f !important;
+  box-shadow: 0 0 15px rgba(255, 0, 127, 0.3);
+}
+
+.anime-kanji {
+  font-family: 'Space Grotesk', var(--font-cyber);
+  font-size: 0.72rem;
+  letter-spacing: 2px;
+  color: #ff007f;
+  margin-right: 6px;
+  text-shadow: 0 0 8px rgba(255, 0, 127, 0.6);
+}
+
+.anime-kanji-sub {
+  font-size: 0.75rem;
+  color: #ff007f;
+  letter-spacing: 2px;
+  margin-left: 10px;
+  text-shadow: 0 0 10px rgba(255, 0, 127, 0.5);
+}
+
+.tester-arena-grid {
+  display: grid;
+  grid-template-columns: 1fr 1.35fr;
+  gap: 28px;
+  align-items: stretch;
+}
+
+.tester-controls-card,
+.tester-terminal-card {
+  background: var(--bg-card);
+  border: 1px solid var(--border-cyan);
+  border-radius: var(--border-radius);
+  padding: 24px;
+  display: flex;
+  flex-direction: column;
+  position: relative;
+  backdrop-filter: blur(16px);
+  box-shadow: 0 15px 40px rgba(0, 0, 0, 0.6), var(--glow-cyan-sm);
+}
+
+.tester-card-header {
+  position: relative;
+  margin-bottom: 16px;
+}
+
+.tester-card-header h4 {
+  font-family: var(--font-cyber);
+  font-size: 0.88rem;
+  letter-spacing: 0.8px;
+  color: var(--cyber-cyan);
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  margin: 0;
+}
+
+.hud-corner-bracket {
+  position: absolute;
+  width: 8px;
+  height: 8px;
+  border-color: var(--cyber-cyan);
+  pointer-events: none;
+}
+.hud-corner-bracket.tl { top: -4px; left: -4px; border-top: 2px solid; border-left: 2px solid; }
+.hud-corner-bracket.tr { top: -4px; right: -4px; border-top: 2px solid; border-right: 2px solid; }
+
+/* Project selector buttons */
+.tester-project-selector {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.tester-proj-btn {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  padding: 12px 16px;
+  background: rgba(8, 14, 30, 0.7);
+  border: 1px solid rgba(0, 242, 254, 0.2);
+  border-radius: var(--border-radius-sm);
+  color: #fff;
+  cursor: pointer;
+  text-align: left;
+  transition: all 0.25s ease;
+}
+
+.tester-proj-btn:hover {
+  background: rgba(0, 242, 254, 0.1);
+  border-color: var(--cyber-cyan);
+  transform: translateX(4px);
+}
+
+.tester-proj-btn.active {
+  background: rgba(0, 242, 254, 0.15);
+  border-color: var(--cyber-cyan);
+  box-shadow: inset 3px 0 0 var(--cyber-cyan), var(--glow-cyan-sm);
+}
+
+.proj-btn-icon {
+  width: 36px;
+  height: 36px;
+  border-radius: 6px;
+  background: rgba(0, 242, 254, 0.1);
+  border: 1px solid var(--cyber-cyan);
+  color: var(--cyber-cyan);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.1rem;
+  flex-shrink: 0;
+}
+
+.proj-btn-text {
+  display: flex;
+  flex-direction: column;
+}
+
+.proj-btn-text strong {
+  font-family: var(--font-cyber);
+  font-size: 0.85rem;
+  color: #fff;
+}
+
+.proj-btn-text span {
+  font-family: var(--font-mono);
+  font-size: 0.72rem;
+  color: var(--text-muted);
+}
+
+/* Attack Vector Armory */
+.tester-attack-armory {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 8px;
+  margin-bottom: 20px;
+}
+
+.attack-vector-btn {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 10px 14px;
+  background: rgba(6, 10, 24, 0.8);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: var(--border-radius-sm);
+  color: #e5e7eb;
+  cursor: pointer;
+  transition: all 0.2s;
+  font-family: var(--font-mono);
+  font-size: 0.8rem;
+  text-align: left;
+}
+
+.attack-vector-btn:hover {
+  border-color: var(--cyber-pink, #ff007f);
+  background: rgba(255, 0, 127, 0.08);
+  transform: translateX(4px);
+}
+
+.attack-vector-btn.active {
+  border-color: #ff007f;
+  background: rgba(255, 0, 127, 0.18);
+  color: #fff;
+  box-shadow: 0 0 15px rgba(255, 0, 127, 0.35);
+}
+
+.attack-code {
+  font-weight: 700;
+  color: #ffb703;
+  font-size: 0.75rem;
+  background: rgba(255, 183, 3, 0.12);
+  padding: 2px 6px;
+  border-radius: 4px;
+  border: 1px solid rgba(255, 183, 3, 0.3);
+}
+
+.attack-name {
+  font-weight: 500;
+}
+
+/* Execute Attack Button */
+.btn-execute-attack {
+  margin-top: auto;
+  padding: 15px;
+  background: linear-gradient(135deg, #ff0055, #ff007f, #7209b7);
+  color: #fff;
+  border: none;
+  border-radius: var(--border-radius-sm);
+  font-family: var(--font-cyber);
+  font-size: 0.92rem;
+  font-weight: 800;
+  letter-spacing: 1px;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  box-shadow: 0 0 25px rgba(255, 0, 127, 0.5);
+  transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.btn-execute-attack:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 0 40px rgba(255, 0, 127, 0.8);
+  filter: brightness(1.15);
+}
+
+.btn-execute-attack:active {
+  transform: translateY(1px);
+}
+
+/* Terminal Screen in Tester */
+.tester-screen-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 12px;
+  padding-bottom: 14px;
+  border-bottom: 1px solid var(--border-cyan);
+  margin-bottom: 16px;
+}
+
+.screen-title-area {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.pulse-beacon {
+  width: 9px;
+  height: 9px;
+  border-radius: 50%;
+  background: #00ff66;
+  box-shadow: 0 0 10px #00ff66;
+  animation: radarPing 1.5s infinite;
+}
+
+.screen-title {
+  font-family: var(--font-cyber);
+  font-size: 0.82rem;
+  color: #fff;
+  letter-spacing: 0.8px;
+}
+
+.hud-phase-stepper {
+  display: flex;
+  gap: 6px;
+}
+
+.phase-step {
+  font-family: var(--font-mono);
+  font-size: 0.68rem;
+  font-weight: 700;
+  padding: 3px 8px;
+  border-radius: 4px;
+  background: rgba(255, 255, 255, 0.05);
+  color: var(--text-muted);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  transition: all 0.3s;
+}
+
+.phase-step.active {
+  background: rgba(0, 242, 254, 0.2);
+  color: var(--cyber-cyan);
+  border-color: var(--cyber-cyan);
+  box-shadow: 0 0 10px var(--cyber-cyan);
+}
+
+.phase-step.completed {
+  background: rgba(0, 255, 102, 0.2);
+  color: #00ff66;
+  border-color: #00ff66;
+}
+
+/* Tester HUD Metrics */
+.tester-hud-metrics {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 10px;
+  margin-bottom: 16px;
+}
+
+.t-metric-box {
+  background: rgba(4, 8, 20, 0.8);
+  border: 1px solid rgba(0, 242, 254, 0.2);
+  padding: 10px 12px;
+  border-radius: var(--border-radius-sm);
+  display: flex;
+  flex-direction: column;
+}
+
+.t-lbl {
+  font-family: var(--font-mono);
+  font-size: 0.65rem;
+  color: var(--text-muted);
+}
+
+.t-val {
+  font-family: var(--font-cyber);
+  font-size: 0.85rem;
+  font-weight: 700;
+  margin-top: 4px;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.status-blocked {
+  color: #00ff66;
+  text-shadow: 0 0 8px rgba(0, 255, 102, 0.5);
+}
+
+/* Console Body in Tester */
+.tester-console-body {
+  background: #020308;
+  border: 1px solid rgba(0, 242, 254, 0.3);
+  border-radius: var(--border-radius-sm);
+  padding: 16px;
+  font-family: var(--font-mono);
+  font-size: 0.82rem;
+  line-height: 1.6;
+  color: #d1d5db;
+  height: 320px;
+  overflow-y: auto;
+  box-shadow: inset 0 0 25px rgba(0, 0, 0, 0.85);
+  margin-bottom: 16px;
+}
+
+.tester-welcome-log {
+  color: #9ca3af;
+  line-height: 1.7;
+}
+
+.tester-screen-footer {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 12px;
+  margin-top: auto;
+  padding-top: 12px;
+  border-top: 1px solid rgba(0, 242, 254, 0.15);
+}
+
+.security-analyst-tag {
+  font-family: var(--font-mono);
+  font-size: 0.78rem;
+  color: var(--cyber-green);
+}
+
+@media (max-width: 992px) {
+  .tester-arena-grid {
+    grid-template-columns: 1fr;
+  }
+  .tester-hud-metrics {
     grid-template-columns: repeat(2, 1fr);
   }
 }
